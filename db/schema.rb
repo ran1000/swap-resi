@@ -10,9 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_21_185228) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_21_191240) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.text "message"
+    t.boolean "accepted"
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "total_cost"
+    t.bigint "user_id", null: false
+    t.bigint "space_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["space_id"], name: "index_bookings_on_space_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "spaces", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.float "lat"
+    t.float "lng"
+    t.integer "daily_cost"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_spaces_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -25,9 +51,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_185228) do
     t.string "username"
     t.text "description"
     t.string "city"
-    t.integer "credits"
+    t.integer "credits", default: 50
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "spaces"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "spaces", "users"
 end
