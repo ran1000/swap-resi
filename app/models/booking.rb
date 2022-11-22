@@ -8,4 +8,7 @@ class Booking < ApplicationRecord
     declined: 2
   }, _prefix: true
 
+  validates :message, presence: true, length: { minimum: 6 }
+  validates :start_date, presence: true
+  validates :end_date, presence: true
 end
