@@ -1,0 +1,6 @@
+<%= link_to "New Resi", new_space_path %>
+<% @spaces.each do |space| %>
+  <p>
+    <%= space.name  %>
+  </p>
+<% end %>

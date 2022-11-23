@@ -1,0 +1,9 @@
+<div class="container">
+  <h3>Create a new Resi</h3>
+  <% simple_form_for @space do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :daily_cost %>
+    <%= f.submit "Submit Resi", class: "btn btn-primary" %>
+  <% end %>
+</div>
