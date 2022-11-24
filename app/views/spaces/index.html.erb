@@ -1,0 +1,19 @@
+<div class="container">
+  <%= link_to "New Resi", new_space_path %>
+  <% @spaces.each do |space| %>
+    <div class="card" style="width: 18rem; max-height: 200px;">
+      <img class="card-img-top" src="https://source.unsplash.com/random" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">
+          <%= space.name %>
+        </h5>
+        <p class="card-text">
+          <%= space.description %>
+        </p>
+        <%= link_to space_path(space) do %>
+          <p class="btn btn-primary">See</p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
