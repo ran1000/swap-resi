@@ -1,0 +1,27 @@
+  <div class="container-space">
+    <div class="image-banner">
+      <%# Cloudinary Image %>
+      <img src="https://images.unsplash.com/photo-1492097631548-189753426f9c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1760&q=80" alt="Picture of the Studio">
+    </div>
+    <div class="container">
+      <div class="container-info">
+        <h3>
+          <%= @space.name %>
+        </h3>
+        <p>Description:</p>
+        <p>
+        <%= @space.description %>
+        </p>
+        <p>Cost:</p>
+        <p>
+        <%= @space.daily_cost %> Credits/day
+        </p>
+        <p>
+          Offered by <%= @space.user.username %>
+        </p>
+      </div>
+      <% if @space.user != current_user %>
+        <%= link_to "Book Resi", new_space_booking_path(@space) %>
+      <% end %>
+    </div>
+  </div>
