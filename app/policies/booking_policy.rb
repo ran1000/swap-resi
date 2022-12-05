@@ -1,7 +1,8 @@
 class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      # Just the current user sees his/her bookings
+      scope.where(user: user)
     end
   end
 

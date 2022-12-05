@@ -1,4 +1,4 @@
-class BookingController < ApplicationController
+class BookingsController < ApplicationController
   def index
     @bookings = Booking.all
     @bookings = policy_scope(Booking)
@@ -17,7 +17,7 @@ class BookingController < ApplicationController
     @booking.user = current_user
     authorize @booking
     if @booking.save!
-      redirect_to space_booking_index_path
+      redirect_to bookings_path
     else
       render :new, status: :unprocessable_entity
     end

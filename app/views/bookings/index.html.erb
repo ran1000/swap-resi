@@ -1,0 +1,29 @@
+<h1>Bookings</h1>
+<div class="container d-flex flex-wrap">
+  <% @bookings.each do |booking| %>
+    <div class="card-medium p-3">
+      <h3>
+        <%= booking.space.name %>
+      </h3>
+      <p>
+        Booked at:
+        <%= booking.updated_at.strftime("%B %d, %Y") %>
+      </p>
+      <p>
+        Resi from:
+        <%= booking.space.user.username %>
+      </p>
+      <p>
+        Booked from:
+        <%= booking.user.username %>
+      </p>
+      <p>
+        <%= booking.start_date %> - <%= booking.end_date %>
+      </p>
+      <p>
+        Status:
+        <%= booking.status %>
+      </p>
+    </div>
+  <% end %>
+</div>
