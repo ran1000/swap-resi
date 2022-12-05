@@ -1,0 +1,15 @@
+<h1>Manage your spaces</h1>
+<% @bookings.each do | booking | %>
+  <p>
+    <%= booking.space.name %>
+  </p>
+  <p> Booked by:
+    <%= booking.user.username %>
+  </p>
+  <p> Offered by:
+    <%= booking.space.user.username %>
+  </p>
+  <p>
+    <%= booking.updated_at %>
+  </p>
+<% end %>

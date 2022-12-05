@@ -81,3 +81,6 @@ gem "devise"
 
 # Authorization
 gem "pundit"
+
+# Faker
+gem "faker"

@@ -6,6 +6,10 @@ class BookingPolicy < ApplicationPolicy
     end
   end
 
+  def host_index?
+    scope.all
+  end
+
   def new?
     true
   end

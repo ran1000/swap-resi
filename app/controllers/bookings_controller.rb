@@ -4,6 +4,19 @@ class BookingsController < ApplicationController
     @bookings = policy_scope(Booking)
   end
 
+  def host_index
+    @host_spaces = current_user.spaces
+    @bookings = Booking.where(space_id: current_user.spaces)
+    skip_authorization
+    # @bookings = []
+    # Booking.all.each do |booking|
+    #   if booking.space.user == current_user
+    #     @bookings << booking
+    #   end
+    # end
+    # skip_authorization
+  end
+
   def new
     @space = Space.find(params[:space_id])
     @booking = Booking.new
