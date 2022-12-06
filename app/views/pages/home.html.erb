@@ -1,19 +1,18 @@
 <div class="banner-home">
-  <div class="container h-100 d-flex flex-column justify-content-end">
-    <h3 class="values">Exchange your Creative Residency</h3>
-    <h3 class="values">Get Ideas from Different Environments</h3>
-    <h3 class="values pb-5">Meet New Artists Through Spaces</h3>
-  </div>
 </div>
-<div class="container pt-3">
-  <form class="form-inline" action="">
-    <div class="form-group mb-2">
-      <label for="sr-only">Where?</label>
-      <input class="form-control w-25" type="address">
-    </div>
-    <button class="btn btn-primary mb-2">Search</button>
-  </form>
-    <%= link_to spaces_path do %>
-      <button class="btn btn-primary mb-2">Start</button>
-    <% end %>
+<div class="bg-primary container-home">
+  <div class="container pt-5">
+    <h1 class="text-dark fw-bold fs-1 pt-3">Exchange your Creative Residency</h1>
+    <h5 class="text-dark fw-light w-50 pt-3">Get new ideas from different environments and connect with other artists through spaces</h5>
+    <%# <form class="form-inline" action="">
+      <div class="form-group mb-2">
+        <label for="sr-only">Where?</label>
+        <input class="form-control w-25" type="address">
+      </div>
+      <button class="btn btn-primary mb-2">Search</button>
+    </form> %>
+      <%= link_to spaces_path do %>
+        <button class="btn btn-success p-2 ps-5 pe-5 mt-4 round">Start</button>
+      <% end %>
+  </div>
 </div>
