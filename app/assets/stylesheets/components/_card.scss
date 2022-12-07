@@ -1,0 +1,17 @@
+.card-spaces {
+  width: 20rem;
+  height: 40rem;
+  background-color: $light-gray;
+
+  img {
+    max-height: 50%;
+    object-fit: cover;
+  }
+
+  .description-space {
+    height: 12rem;
+    // white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

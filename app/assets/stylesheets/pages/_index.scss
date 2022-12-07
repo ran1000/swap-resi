@@ -1,3 +1,31 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "../components/card";
+@import "../components/alert";
+@import "../components/avatar";
+@import "../components/form_legend_clear";
+@import "../components/navbar";
+
+
+.button-map {
+  position: absolute;
+  top: 100px;
+  right: 50px;
+}
+
+.button-back {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+}
+
+.button-new {
+  position: fixed;
+  bottom: 30px;
+  right: 50px;
+}
+
+.card-space-button {
+  position: absolute;
+  bottom: 10px;
+}

@@ -1,23 +1,29 @@
+<div class="map"></div>
 <div class="container">
-  <h3>
-    <%= link_to "New Resi", new_space_path %>
-  </h3>
-  <div class="container d-flex flex-wrap">
+  <div class="container d-flex justify-content-center flex-wrap">
     <% @spaces.each do |space| %>
-      <div class="card">
+      <div class="card m-2 card-spaces">
         <img class="card-img-top" src="https://source.unsplash.com/random" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">
             <%= space.name %>
           </h5>
-          <p class="card-text">
+          <p class="card-text description-space">
             <%= space.description %>
           </p>
           <%= link_to space_path(space) do %>
-            <p class="btn btn-primary">See</p>
+            <p class="btn btn-primary card-space-button">See</p>
           <% end %>
         </div>
       </div>
     <% end %>
   </div>
 </div>
+
+<button class="btn btn-success rounded-circle button-map"><i class="fa-solid fa-map-location-dot"></i></button>
+<%= link_to :back do %>
+  <button class="btn btn-success rounded-circle button-back"><i class="fa-solid fa-arrow-left"></i></i></button>
+<% end %>
+<%= link_to new_space_path do %>
+  <button class="btn btn-success rounded-circle button-new"><i class="fa-solid fa-plus"></i></button>
+<% end %>
