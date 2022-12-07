@@ -46,7 +46,9 @@
         Offered by <%= @space.user.username %>
       </p>
       <% if @space.user != current_user %>
-        <%= link_to "Book Resi", new_space_booking_path(@space) %>
+        <%= link_to new_space_booking_path(@space) do %>
+            <button class="btn btn-success rounded button-booking">Book Resi</button>
+        <% end %>
       <% end %>
     </div>
   </div>
