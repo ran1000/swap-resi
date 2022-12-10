@@ -1,0 +1,36 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $warning;
+  width: 60vw;
+  height: 70vh;
+  padding: 20px;
+  margin: 50px auto;
+  border-radius: $border-radius;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+
+
+  .title-session {
+    padding-top: 20px;
+    padding-bottom: 30px;
+    text-align: center;
+  }
+
+  .links {
+    text-align: center;
+  }
+
+  a {
+    color: $success;
+    text-decoration: none;
+    text-align: center;
+    color: $body-color;
+    padding-bottom: 20px;
+  }
+
+  .submit-button {
+    align-self: center;
+    text-align: center;
+  }
+}
