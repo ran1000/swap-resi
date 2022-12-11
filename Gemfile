@@ -84,3 +84,5 @@ gem "pundit"
 
 # Faker
 gem "faker"
+
+gem "cloudinary"
