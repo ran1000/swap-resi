@@ -108,16 +108,107 @@ puts "Created user #{User.last.id}"
 @user9.save!
 puts "Created user #{User.last.id}"
 
-puts "Created resis ..."
+puts "Creating resis ..."
 @space1 = Space.new(
   name: "Fancy salon for musical rehearsal",
-  description: "It’s a small, but well decorated space for having a charming performance. A vertical piano is already there to use. It is is possible to use a PA system, just ask in advance for it. I’ve been using this space regularly during the past years and produced two of my last solo albums. There is a kitchenette next to the salon for having some hot beverages and warming food.",
-  daily_cost: 5
+  description: "It’s a small, but well-decorated space for having a charming performance. A vertical piano is already there to use. It is is possible to use a PA system, just ask in advance for it. I’ve been using this space regularly during the past years and produced two of my last solo albums. There is a kitchenette next to the salon for having some hot beverages and warming food.",
+  daily_cost: 15
   # address: SPACES_ADDRESSES.sample(1)
 )
 @space1.user = @user1
 @space1.photos.attach(io: File.open(Rails.root.join("app/assets/images/1_musicsalon.jpeg")), filename: "1_musicsalon")
 @space1.save!
+puts "Created resi #{Space.last.id}"
+
+@space2 = Space.new(
+  name: "Pottery Atelier",
+  description: "It is a well-illuminated room with plenty of space for showcasing and storing small objects. I’m using it for pottery small items, but it could be used for jewelry or small sculptures.",
+  daily_cost: 10
+  # address: SPACES_ADDRESSES.sample(1)
+)
+@space2.user = @user2
+@space2.photos.attach(io: File.open(Rails.root.join("app/assets/images/2_pottery.jpeg")), filename: "2_pottery")
+@space2.save!
+puts "Created resi #{Space.last.id}"
+
+@space3 = Space.new(
+  name: "Painting room",
+  description: "The room has 30sq m and is fully equipped with more canvas holders. The room is usually busy during weekends, but I borrow it for the rest of the weekdays.",
+  daily_cost: 8
+  # address: SPACES_ADDRESSES.sample(1)
+)
+@space3.user = @user3
+@space3.photos.attach(io: File.open(Rails.root.join("app/assets/images/3_painting_01.jpeg")), filename: "3_painting_01")
+@space3.photos.attach(io: File.open(Rails.root.join("app/assets/images/3_painting_02.jpeg")), filename: "3_painting_02")
+@space3.save!
+puts "Created resi #{Space.last.id}"
+
+@space4 = Space.new(
+  name: "Industrial space for painting and spraying",
+  description: "It is actually part of a larger space owned by a community of artists from different fields. I borrow my studio from Thursdays to Sundays. The space is 80 sq m and well-ventilated, it, therefore, allows to use of aerial painting techniques on large canvases.",
+  daily_cost: 12
+  # address: SPACES_ADDRESSES.sample(1)
+)
+@space4.user = @user4
+@space4.photos.attach(io: File.open(Rails.root.join("app/assets/images/4_painting_01.jpeg")), filename: "4_painting_01")
+@space4.photos.attach(io: File.open(Rails.root.join("app/assets/images/4_painting_02.jpeg")), filename: "4_painting_02")
+@space4.save!
+puts "Created resi #{Space.last.id}"
+
+@space5 = Space.new(
+  name: "Large hall for installations and performances",
+  description: "I’m usually organising some private events here and host some local artist, giving them a large space to stage their performances and acts. Please book in advance to ensure its availability.",
+  daily_cost: 18
+  # address: SPACES_ADDRESSES.sample(1)
+)
+@space5.user = @user5
+@space5.photos.attach(io: File.open(Rails.root.join("app/assets/images/5_installations.jpeg")), filename: "5_installations")
+@space5.save!
+puts "Created resi #{Space.last.id}"
+
+@space6 = Space.new(
+  name: "Essential Recording Studio",
+  description: "This is a actually small, cozy room from my main house and I occasionally use it for professional recording of string instruments and voice.",
+  daily_cost: 3
+  # address: SPACES_ADDRESSES.sample(1)
+)
+@space6.user = @user6
+@space6.photos.attach(io: File.open(Rails.root.join("app/assets/images/6_musicstudio.jpeg")), filename: "6_musicstudio")
+@space6.save!
+puts "Created resi #{Space.last.id}"
+
+@space7 = Space.new(
+  name: "Digital Music Studio",
+  description: "The room is dark, but it has a special atmosphere given by colored stage lights and the many synthesizers ready to play in the room. I’ve been using it to produce music for the last few years, now I’m slowly transitioning to a new space and I mostly borrow it during weekends.",
+  daily_cost: 5
+  # address: SPACES_ADDRESSES.sample(1)
+)
+@space7.user = @user7
+@space7.photos.attach(io: File.open(Rails.root.join("app/assets/images/7_musicstudio.jpeg")), filename: "7_musicstudio")
+@space7.save!
+puts "Created resi #{Space.last.id}"
+
+@space8 = Space.new(
+  name: "Attic for Drawing",
+  description: "I hardly find a space that is as calm as my attic space. Some large sky windows light the space giving it a floating feeling. It is perfect for drawing and sketching. A large table is already there to use.",
+  daily_cost: 3
+  # address: SPACES_ADDRESSES.sample(1)
+)
+@space8.user = @user8
+@space8.photos.attach(io: File.open(Rails.root.join("app/assets/images/8_drawingattic.jpeg")), filename: "8_drawingattic")
+@space8.save!
+puts "Created resi #{Space.last.id}"
+
+@space9 = Space.new(
+  name: "Creative Garage",
+  description: "It has every kind of tool needed to prototype fast ideas or to build something bigger. There is plenty of space inside and next to the garage.",
+  daily_cost: 8
+  # address: SPACES_ADDRESSES.sample(1)
+)
+@space9.user = @user9
+@space9.photos.attach(io: File.open(Rails.root.join("app/assets/images/9_creativegarage_01.jpeg")), filename: "9_creativegarage_01")
+@space9.photos.attach(io: File.open(Rails.root.join("app/assets/images/9_creativegarage_02.jpeg")), filename: "9_creativegarage_02")
+@space9.save!
 puts "Created resi #{Space.last.id}"
 
 # puts "Creating Bookings..."
