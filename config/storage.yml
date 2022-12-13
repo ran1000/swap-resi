@@ -35,5 +35,5 @@ local:
 
 # config/storage.yml
 cloudinary:
-  service: ry
+  service: Cloudinary
   folder: <%= Rails.env %>

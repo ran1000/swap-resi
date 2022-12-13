@@ -44,38 +44,93 @@ User.destroy_all
 puts 'DB emptied'
 
 puts 'Creating Users...'
-3.times do
-  @user = User.new(
-    username: "user" + Faker::Name.first_name,
-    email: Faker::Internet.email,
-    password: "123123"
-  )
-  @user.save!
-  puts "Created user #{User.last.id}"
-end
+@user1 = User.new(
+  username: "lenlen",
+  email: "len.maridov@gmail.com",
+  password: "qwe123"
+)
+@user1.save!
+puts "Created user #{User.last.id}"
+@user2 = User.new(
+  username: "mariapot",
+  email: "maria.smith@outlook.com",
+  password: "qwe123"
+)
+@user2.save!
+puts "Created user #{User.last.id}"
+@user3 = User.new(
+  username: "ray7894",
+  email: "ray.paintings@art.com",
+  password: "qwe123"
+)
+@user3.save!
+puts "Created user #{User.last.id}"
+@user4 = User.new(
+  username: "gelly1",
+  email: "gelly.star@gmail.com",
+  password: "qwe123"
+)
+@user4.save!
+puts "Created user #{User.last.id}"
+@user5 = User.new(
+  username: "michaelr",
+  email: "michael.reynolds@moc.com",
+  password: "qwe123"
+)
+@user5.save!
+puts "Created user #{User.last.id}"
+@user6 = User.new(
+  username: "noll33",
+  email: "nolan.ammac@live.com",
+  password: "qwe123"
+)
+@user6.save!
+puts "Created user #{User.last.id}"
+@user7 = User.new(
+  username: "mark132",
+  email: "mark.thomson@yahoo.com",
+  password: "qwe123"
+)
+@user7.save!
+puts "Created user #{User.last.id}"
+@user8 = User.new(
+  username: "jensar",
+  email: "sara.jenkins@gmail.com",
+  password: "qwe123"
+)
+@user8.save!
+puts "Created user #{User.last.id}"
+@user9 = User.new(
+  username: "rudy209",
+  email: "rudolf.moser@bluewin.de",
+  password: "qwe123"
+)
+@user9.save!
+puts "Created user #{User.last.id}"
 
-puts 'Creating Resis...'
-12.times do
-  @space = Space.new(
-    name: Faker::Restaurant.name,
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-    daily_cost: rand(3..10),
-    # address: SPACES_ADDRESSES.sample(1)
-  )
-  @space.user = User.all[rand(0..(User.count - 1))]
-  @space.save!
-  puts "Created resi #{Space.last.id}"
-end
+puts "Created resis ..."
+@space1 = Space.new(
+  name: "Fancy salon for musical rehearsal",
+  description: "It’s a small, but well decorated space for having a charming performance. A vertical piano is already there to use. It is is possible to use a PA system, just ask in advance for it. I’ve been using this space regularly during the past years and produced two of my last solo albums. There is a kitchenette next to the salon for having some hot beverages and warming food.",
+  daily_cost: 5
+  # address: SPACES_ADDRESSES.sample(1)
+)
+@space1.user = @user1
+@space1.photos.attach(io: File.open(Rails.root.join("app/assets/images/1_musicsalon.jpeg")), filename: "1_musicsalon")
+@space1.save!
+puts "Created resi #{Space.last.id}"
 
-puts "Creating Bookings..."
-5.times do
-  @booking = Booking.new(
-    message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-    start_date: Date.today,
-    end_date: Date.tomorrow
-  )
-  @booking.space = Space.all[rand(0..(User.count - 1))]
-  @booking.user = User.all[rand(0..(User.count - 1))]
-  @booking.save!
-  puts "Created booking #{Booking.last.id}"
-end
+# puts "Creating Bookings..."
+# 5.times do
+#   @booking = Booking.new(
+  #     message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+  #     start_date: Date.today,
+  #     end_date: Date.tomorrow
+  #   )
+  #   @booking.space = Space.all[rand(0..(User.count - 1))]
+  #   @booking.user = User.all[rand(0..(User.count - 1))]
+  #   @booking.save!
+  #   puts "Created booking #{Booking.last.id}"
+  # end
+
+  puts "Seeding complete!"
