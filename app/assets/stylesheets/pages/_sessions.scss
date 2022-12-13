@@ -1,0 +1,38 @@
+.session {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $warning;
+  width: 60vw;
+  height: 70vh;
+  min-height: 600px;
+  padding: 20px;
+  margin: 50px auto;
+  border-radius: $border-radius;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+
+
+  .title-session {
+    padding-top: 20px;
+    padding-bottom: 30px;
+    text-align: center;
+  }
+
+  .links {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    a {
+      color: $success;
+      text-decoration: none;
+      text-align: center;
+      color: $body-color;
+    }
+  }
+
+  .submit-button {
+    align-self: center;
+    text-align: center;
+  }
+}

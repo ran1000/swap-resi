@@ -11,6 +11,7 @@ legend~div.form-check:first-of-type {
 
 .form-img {
   background-image: url("https://images.unsplash.com/photo-1613667208513-f7b7cd222377?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80");
+  // url('<%= cl_image_path @article.photo.key, height: 300, crop: :fill %>')"
   background-position: center;
   background-size: cover;
   height: 30vh;
