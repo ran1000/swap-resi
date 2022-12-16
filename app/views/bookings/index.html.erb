@@ -2,6 +2,7 @@
   <h1>Bookings</h1>
   <br>
   <h3>Your Bookings</h3>
+  <br>
   <div class="d-flex flex-wrap">
     <% @bookings.each do |booking| %>
       <div class="card-medium pb-3 pe-3">
@@ -30,6 +31,5 @@
       </div>
     <% end %>
   </div>
-  <h3>Booking requests</h3>
-  <%= link_to "Requests",  host_index_bookings_path %>
+  <%= link_to "Booking requests",  host_index_bookings_path, class: "text-body" %>
 </div>

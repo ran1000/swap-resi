@@ -1,15 +1,24 @@
-<h1>Manage your spaces</h1>
-<% @bookings.each do | booking | %>
-  <p>
-    <%= booking.space.name %>
-  </p>
-  <p> Booked by:
-    <%= booking.user.username %>
-  </p>
-  <p> Offered by:
-    <%= booking.space.user.username %>
-  </p>
-  <p>
-    <%= booking.updated_at %>
-  </p>
-<% end %>
+<div class="container">
+  <h1>Manage your spaces</h1>
+  <% @bookings.each do | booking | %>
+    <p>
+      <%= booking.space.name %>
+    </p>
+    <p> Booked by:
+      <%= booking.user.username %>
+    </p>
+    <p> Offered by:
+      <%= booking.space.user.username %>
+    </p>
+    <p> Message:
+      <%= booking.message %>
+    </p>
+    <p>
+      <%= booking.updated_at.strftime("%B %d, %Y") %>
+    </p>
+    <% if booking.status === "pending" %>
+      <button class="btn btn-success p-2 ps-5 pe-5 mt-4 rounded">Accept</button>
+      <button class="btn btn-success p-2 ps-5 pe-5 mt-4 rounded">Decline</button>
+    <% end %>
+  <% end %>
+</div>
