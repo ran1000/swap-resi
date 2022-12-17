@@ -13,12 +13,23 @@
     <p> Message:
       <%= booking.message %>
     </p>
-    <p>
-      <%= booking.updated_at.strftime("%B %d, %Y") %>
-    </p>
-    <% if booking.status === "pending" %>
-      <button class="btn btn-success p-2 ps-5 pe-5 mt-4 rounded">Accept</button>
-      <button class="btn btn-success p-2 ps-5 pe-5 mt-4 rounded">Decline</button>
-    <% end %>
+      <p>
+        <%= booking.updated_at.strftime("%B %d, %Y") %>
+      </p>
+    <div class="status" data-controller="status">
+      <p>
+        This booking is <strong><%= booking.status %></strong>
+      </p>
+      <% if booking.status === "pending" %>
+        <button class="btn btn-success p-2 ps-5 pe-5 mt-4 rounded"
+                data-action="click->status#acceptStatus"
+                data-status-target="accept"
+                >Accept</button>
+        <button class="btn btn-success p-2 ps-5 pe-5 mt-4 rounded"
+                data-action="click->status#declineStatus"
+                data-status-target="decline"
+                >Decline</button>
+      <% end %>
+    </div>
   <% end %>
 </div>
