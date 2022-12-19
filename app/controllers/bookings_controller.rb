@@ -36,9 +36,19 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
+      puts "updated"
+    else
+      puts "unprocessable entry"
+    end
+    authorize @booking
+  end
+
   private
 
   def booking_params
-    params.require(:booking).permit(:message, :start_date, :end_date)
+    params.require(:booking).permit(:message, :start_date, :end_date, :status)
   end
 end

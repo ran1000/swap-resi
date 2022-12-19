@@ -17,18 +17,22 @@
         <%= booking.updated_at.strftime("%B %d, %Y") %>
       </p>
     <div class="status" data-controller="status">
-      <p>
-        This booking is <strong><%= booking.status %></strong>
-      </p>
-      <% if booking.status === "pending" %>
-        <button class="btn btn-success p-2 ps-5 pe-5 mt-4 rounded"
-                data-action="click->status#acceptStatus"
-                data-status-target="accept"
-                >Accept</button>
-        <button class="btn btn-success p-2 ps-5 pe-5 mt-4 rounded"
-                data-action="click->status#declineStatus"
-                data-status-target="decline"
-                >Decline</button>
+      <% if booking.pending? %>
+        <p>
+          This booking is <strong><%= booking.status %></strong>
+        </p>
+        <%= simple_form_for(booking) do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
+            <%= f.submit "Accept", class: "btn btn-success p-2 ps-5 pe-5 mt-4 rounded" %>
+        <% end %>
+        <%= simple_form_for(booking) do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: "declined" } %>
+            <%= f.submit "Decline", class: "btn btn-success p-2 ps-5 pe-5 mt-4 rounded" %>
+        <% end %>
+      <% else %>
+        <p>
+          <%= booking.status %>
+        </p>
       <% end %>
     </div>
   <% end %>
