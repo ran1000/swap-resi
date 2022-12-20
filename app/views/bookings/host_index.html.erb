@@ -16,10 +16,12 @@
       <p>
         <%= booking.updated_at.strftime("%B %d, %Y") %>
       </p>
-    <div class="status" data-controller="status">
-      <% if booking.pending? %>
+    <div class="status"
+         data-controller="status"
+         data-status-booking-id-value="<%= booking.id %>" >
+      <%# <% if booking.pending? %>
         <p>
-          This booking is <strong><%= booking.status %></strong>
+          This booking is <strong data-status-target="bookingStatus" ><%= booking.status %></strong>
         </p>
         <%= simple_form_for(booking) do |f| %>
             <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
@@ -29,11 +31,11 @@
             <%= f.input :status, as: :hidden, input_html: { value: "declined" } %>
             <%= f.submit "Decline", class: "btn btn-success p-2 ps-5 pe-5 mt-4 rounded" %>
         <% end %>
-      <% else %>
-        <p>
-          <%= booking.status %>
-        </p>
-      <% end %>
+      <%# <% else %>
+        <%# <p> %>
+          <%#= booking.status %>
+        <%# </p> %>
+      <%# <% end %>
     </div>
   <% end %>
 </div>

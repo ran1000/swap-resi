@@ -8,13 +8,6 @@ class BookingsController < ApplicationController
     @host_spaces = current_user.spaces
     @bookings = Booking.where(space_id: current_user.spaces)
     skip_authorization
-    # @bookings = []
-    # Booking.all.each do |booking|
-    #   if booking.space.user == current_user
-    #     @bookings << booking
-    #   end
-    # end
-    # skip_authorization
   end
 
   def new
@@ -39,9 +32,15 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     if @booking.update(booking_params)
-      puts "updated"
+      # Here I should broadcast_to the BookingChannel
+      BookingChannel.broadcast_to(
+        @booking,
+        "You've got Mail!"
+        # render_to_string(host_index_bookings_path, @booking)
+      )
+      # head :ok
     else
-      puts "unprocessable entry"
+      # unprocessable entry
     end
     authorize @booking
   end
