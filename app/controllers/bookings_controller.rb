@@ -35,7 +35,7 @@ class BookingsController < ApplicationController
       # Here I should broadcast_to the BookingChannel
       BookingChannel.broadcast_to(
         @booking,
-        "You've got Mail!"
+        @booking.status
         # render_to_string(host_index_bookings_path, @booking)
       )
       # head :ok

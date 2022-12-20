@@ -6,15 +6,15 @@ export default class extends Controller {
   static values = { bookingId: Number };
   static targets = ["bookingStatus"];
 
+  changeStatus(data) {
+    this.bookingStatusTarget.innerHTML = data
+  }
+
   connect() {
     this.channel = createConsumer().subscriptions.create(
       { channel: "BookingChannel", id: this.bookingIdValue },
-      { received: data => console.log(data) }
+      { received: data => this.changeStatus(data) }
     )
-    console.log(`Subscribe to the booking with the id ${this.bookingIdValue}`);
-    console.log(this.bookingStatusTarget);
-    // console.log(this.element);
-    // console.log(this.declineTarget);
-    // console.log(this.acceptTarget);
+    // console.log(`Subscribe to the booking with the id ${this.bookingIdValue}`);
   }
 }
