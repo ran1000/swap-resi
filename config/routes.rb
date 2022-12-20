@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :spaces, only: [:index, :show, :new, :create] do
     resources :bookings, only: [:new, :create]
   end
-  resources :bookings, only: [:index] do
+  resources :bookings, only: [:index, :update] do
     collection do
       get :host_index
     end
