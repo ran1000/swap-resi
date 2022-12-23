@@ -2,11 +2,14 @@
   <h1>Bookings</h1>
   <br>
   <h3>Your Bookings</h3>
+  <br>
   <div class="d-flex flex-wrap">
     <% @bookings.each do |booking| %>
-      <div class="card-medium pb-3 pe-3">
+      <div class="card-medium pb-3 pe-3"
+           data-controller="status"
+           data-status-booking-id-value="<%= booking.id %>" >
         <h3>
-          <%= booking.space.name %>
+            <%= booking.space.name %>
         </h3>
         <p>
           Booked at:
@@ -25,11 +28,12 @@
         </p>
         <p>
           Status:
-          <%= booking.status %>
+          <strong data-status-target="bookingStatus">
+            <%= booking.status %>
+          </strong>
         </p>
       </div>
     <% end %>
   </div>
-  <h3>Booking requests</h3>
-  <%= link_to "Requests",  host_index_bookings_path %>
+  <%= link_to "Booking requests",  host_index_bookings_path, class: "text-body" %>
 </div>
