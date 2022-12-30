@@ -11,4 +11,5 @@ Rails.application.routes.draw do
       get :host_index
     end
   end
+  get "messages", to: "pages#messages"
 end
