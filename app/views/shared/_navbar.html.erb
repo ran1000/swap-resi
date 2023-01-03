@@ -1,23 +1,28 @@
 <div class="navbar navbar-expand-sm bg-primary navbar-swapresi">
-  <div class="container-fluid">
-    <%= link_to "/", class: "container-fluid navbar-brand" do %>
+  <div class="container-fluid flex-nowrap">
+    <%= link_to "/", class: "container-fluid navbar-brand align-self-start" do %>
       <h3 class="pt-1 text-dark"><i class="fa-solid fa-rotate fs-4"></i> swap resi</h3>
     <% end %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler align-self-start" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
+        <li class="nav-item active">
+          <%= link_to "Spaces", "/spaces", class: "nav-link pe-3 text-dark" %>
+        </li>
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Spaces", "/spaces", class: "nav-link pe-3 text-dark" %>
+            <%= link_to "Messages", "/messages", class: "nav-link pe-3 text-dark" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://images.unsplash.com/photo-1591968743883-decc954ccce8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end bg-warning dropdown-profile" aria-labelledby="navbarDropdown">
-              <%= link_to "Profile", "#", class: "dropdown-item" %>
-              <%= link_to "Bookings", "/bookings", class: "dropdown-item" %>
+              <%= link_to "#", class: "dropdown-item" do %>
+                    <%= current_user.username.capitalize() %> Profile
+              <% end %>
+              <%= link_to "My Stays", "/bookings", class: "dropdown-item" %>
               <%= link_to "Requests", "/bookings/host_index", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>

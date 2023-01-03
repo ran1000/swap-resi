@@ -6,9 +6,10 @@ Rails.application.routes.draw do
   resources :spaces, only: [:index, :show, :new, :create] do
     resources :bookings, only: [:new, :create]
   end
-  resources :bookings, only: [:index, :update] do
+  resources :bookings, only: [:index, :update, :destroy] do
     collection do
       get :host_index
     end
   end
+  get "messages", to: "pages#messages"
 end

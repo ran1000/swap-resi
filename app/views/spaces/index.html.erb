@@ -3,9 +3,6 @@
   <div class="container d-flex justify-content-center flex-wrap">
     <% @spaces.each do |space| %>
       <div class="card m-2 card-spaces">
-        <%# space.photos.each do |photo| %>
-          <%#= cl_image_tag photo.key, class: %i[card-img-top]  %>
-        <%# end %>
           <%= cl_image_tag space.photos[0].key, class: %i[card-img-top]  %>
         <div class="card-body text-dark">
           <h5 class="card-title">

@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: %i[update destroy]
   def index
     @bookings = Booking.all
     @bookings = policy_scope(Booking)
@@ -30,7 +31,6 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking = Booking.find(params[:id])
     if @booking.update(booking_params)
       # Here I should broadcast_to the BookingChannel
       BookingChannel.broadcast_to(
@@ -45,7 +45,17 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
+  def destroy
+    authorize @booking
+    @booking.destroy
+    redirect_to bookings_path, status: :see_other
+  end
+
   private
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
 
   def booking_params
     params.require(:booking).permit(:message, :start_date, :end_date, :status)
