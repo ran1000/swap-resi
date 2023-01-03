@@ -24,7 +24,9 @@
           </p>
           <p class="card-text">
             Status:
-            <strong data-status-target="bookingStatus">
+            <%# The changing color must be added through js, dynamic when updated %>
+            <strong data-status-target="bookingStatus"
+                    class=<%= booking.status == "accepted" ? "text-success" : "text-danger" %> >
               <%= booking.status %>
             </strong>
           </p>
