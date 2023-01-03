@@ -33,6 +33,9 @@
           </strong>
         </p>
       </div>
+      <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+          <button class="btn btn-success rounded button-booking">Delete Booking</button>
+      <% end %>
     <% end %>
   </div>
   <%= link_to "Booking requests",  host_index_bookings_path, class: "text-body" %>
