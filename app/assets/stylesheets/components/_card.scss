@@ -1,11 +1,15 @@
 .card-spaces {
   width: 20rem;
-  height: 40rem;
+  height: 20rem;
   background-color: $light-gray;
 
-  img {
-    max-height: 50%;
-    object-fit: cover;
+  .card-img {
+    min-height: 75%;
+    background-color: gray;
+
+    img {
+      object-fit: cover;
+    }
   }
 
   .description-space {
