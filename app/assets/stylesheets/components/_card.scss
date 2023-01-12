@@ -1,17 +1,64 @@
-.card-spaces {
+.space-link {
+  text-decoration: none;
+  padding: 8px;
+
+  :hover {
+    opacity: 0.95;
+  }
+}
+
+.squared-card {
+  position: relative;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.03);
   width: 20rem;
-  height: 40rem;
+  height: 20rem;
   background-color: $light-gray;
+  overflow: hidden;
+  border: 0px;
+  border-radius: 25px;
+}
+
+.card-image {
+  height: 70%;
+  background-color: $gray;
 
   img {
-    max-height: 50%;
+    height: 100%;
     object-fit: cover;
   }
+}
 
-  .description-space {
-    height: 9rem;
-    // white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.space-info {
+  height: 30%;
+  padding: 15px 20px 10px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.space-name {
+  font-size: 1rem;
+  color: $dark;
+  font-weight: 500;
+  max-height: 2.5rem;
+  overflow: hidden;
+
+  :hover {
+    transform: translateX(-50px);
   }
+}
+
+.space-owner {
+  font-size: 1rem;
+  color: $gray;
+  margin-bottom: 0px;
+}
+
+.space-cost {
+  font-weight: 500;
+  color: $dark;
+  margin: 0px;
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
 }
