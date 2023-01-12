@@ -19,7 +19,7 @@
           <li class="nav-item dropdown">
             <%= image_tag "https://images.unsplash.com/photo-1591968743883-decc954ccce8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end bg-warning dropdown-profile" aria-labelledby="navbarDropdown">
-              <%= link_to "#", class: "dropdown-item" do %>
+              <%= link_to "/profile", class: "dropdown-item" do %>
                     <%= current_user.username.capitalize() %> Profile
               <% end %>
               <%= link_to "My Stays", "/bookings", class: "dropdown-item" %>
