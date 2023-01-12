@@ -1,21 +1,56 @@
-.card-spaces {
+.space-link {
+  text-decoration: none;
+  padding: 8px;
+
+  :hover {
+    opacity: 0.95;
+  }
+}
+
+.squared-card {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   width: 20rem;
   height: 20rem;
   background-color: $light-gray;
+  overflow: hidden;
+  border: 0px;
 
-  .card-img {
-    min-height: 75%;
+  .card-image {
+    min-height: 70%;
     background-color: gray;
 
     img {
+      height: 100%;
       object-fit: cover;
     }
   }
 
-  .description-space {
-    height: 9rem;
-    // white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  .space-info {
+    height: 30%;
+    padding: 15px 20px 10px 20px;
+
+    .space-name {
+      font-size: 1.2rem;
+      color: $dark;
+      white-space: nowrap;
+      overflow: hidden;
+
+      :hover {
+        transform: translateX(-50px);
+      }
+    }
+
+    .space-owner {
+      font-size: 1rem;
+      color: $dark;
+    }
   }
+}
+
+.space-cost {
+  color: $dark;
+  margin: 0px;
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
 }

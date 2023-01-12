@@ -2,20 +2,23 @@
 <div class="container">
   <div class="container d-flex justify-content-center flex-wrap">
     <% @spaces.each do |space| %>
-      <%= link_to space_path(space) do %>
-        <div class="card m-2 card-spaces">
-          <div class="card-img">
+      <%= link_to space_path(space), class: "space-link" do %>
+        <div class="card squared-card">
+          <div class="card-image">
             <%= cl_image_tag space.photos[0].key, class: %i[card-img-top] %>
           </div>
-          <div class="card-body text-dark">
-            <h5 class="card-title">
+          <div class="space-info">
+            <h5 class="space-name">
               <%= space.name %>
             </h5>
-            <p class="card-text">
-              offered by: <%= space.user.username %>
+            <p class="space-owner">
+              hosted by: <%= space.user.username %>
             </p>
-            <p class="card-text description-space">
-              <%= space.description %>
+            <p class="space-cost">
+              <strong>
+                <%= space.daily_cost %>
+              </strong>
+                <i class="fa-solid fa-coins"></i> / day
             </p>
           </div>
         </div>
