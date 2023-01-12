@@ -3,21 +3,21 @@
   <div class="container d-flex justify-content-center flex-wrap">
     <% @spaces.each do |space| %>
       <%= link_to space_path(space), class: "space-link" do %>
-        <div class="card squared-card">
+        <div class="squared-card">
           <div class="card-image">
-            <%= cl_image_tag space.photos[0].key, class: %i[card-img-top] %>
+            <% if space.photos[0] %>
+              <%= cl_image_tag space.photos[0].key, class: %i[card-img-top] %>
+            <% end %>
           </div>
           <div class="space-info">
             <h5 class="space-name">
               <%= space.name %>
             </h5>
             <p class="space-owner">
-              hosted by: <%= space.user.username %>
+              Host : <%= space.user.username %>
             </p>
             <p class="space-cost">
-              <strong>
                 <%= space.daily_cost %>
-              </strong>
                 <i class="fa-solid fa-coins"></i> / day
             </p>
           </div>
