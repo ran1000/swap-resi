@@ -4,8 +4,13 @@ class SpacesController < ApplicationController
   before_action :set_space, only: %i[show]
 
   def index
-    @spaces = Space.all
-    @spaces = policy_scope(Space)
+    if params[:query].present?
+      @spaces = Space.where("name ILIKE ?", "%#{params[:query]}%")
+      @spaces = policy_scope(@spaces)
+    else
+      @spaces = Space.all
+      @spaces = policy_scope(Space)
+    end
   end
 
   def show
