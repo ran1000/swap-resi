@@ -1,37 +1,39 @@
+<%= render "shared/search" %>
 <div class="map"></div>
-<div class="container">
-  <div class="container d-flex justify-content-center flex-wrap">
-    <% @spaces.each do |space| %>
-      <%= link_to space_path(space), class: "space-link" do %>
-        <div class="squared-card">
-          <div class="card-image">
-            <% if space.photos[0] %>
-              <%= cl_image_tag space.photos[0].key, class: %i[card-img-top] %>
-            <% end %>
-          </div>
-          <div class="space-info">
-            <h5 class="space-name">
-              <%= space.name %>
-            </h5>
-            <p class="space-owner">
-              Host : <%= space.user.username %>
-            </p>
-            <p class="space-cost">
-                <%= space.daily_cost %>
-                <i class="fa-solid fa-coins"></i> / day
-            </p>
-          </div>
+<div class="container d-flex justify-content-center flex-wrap">
+  <% @spaces.each do |space| %>
+    <%= link_to space_path(space), class: "space-link" do %>
+      <div class="squared-card">
+        <div class="card-image">
+          <% if space.photos[0] %>
+            <%= cl_image_tag space.photos[0].key, class: %i[card-img-top] %>
+          <% end %>
         </div>
-      <% end %>
+        <div class="space-info">
+          <h5 class="space-name">
+            <%= space.name %>
+          </h5>
+          <p class="space-owner">
+            Host : <%= space.user.username %>
+          </p>
+          <p class="space-cost">
+              <%= space.daily_cost %>
+              <i class="fa-solid fa-coins"></i> / day
+          </p>
+        </div>
+      </div>
     <% end %>
-  </div>
+  <% end %>
 </div>
-<%= link_to "/messages" do %>
-  <button class="btn btn-success rounded-circle button-map"><i class="fa-solid fa-map-location-dot"></i></button>
-<% end %>
+
+<%
+=begin %>
 <%= link_to :back do %>
   <button class="btn btn-success rounded-circle button-back"><i class="fa-solid fa-arrow-left"></i></i></button>
 <% end %>
+<%
+=end %>
+
 <%= link_to new_space_path do %>
   <button class="btn btn-success rounded-circle button-new"><i class="fa-solid fa-plus"></i></button>
 <% end %>

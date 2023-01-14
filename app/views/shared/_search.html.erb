@@ -1,0 +1,22 @@
+<div class="container mt-5 mb-4">
+  <form action="/spaces" method="GET" class="ms-3 me-3" data-turbo="false">
+    <div class="row g-3 justify-content-between align-items-center flex-wrap">
+      <div class="row col-auto align-items-center">
+        <div class="col-auto mb-2">
+          <label for="place" class="col-form-label">Type of Space</label>
+        </div>
+        <div class="col-auto mb-2">
+          <input class="form-control" type="text" id="place" placeholder="Atelier" name="query">
+        </div>
+        <div class="col-auto mb-2">
+          <button type="submit" class="btn btn-success">Search</button>
+        </div>
+      </div>
+      <div class="row col-auto">
+        <%= link_to "/messages" do %>
+          <button class="btn btn-success rounded-circle button-map"><i class="fa-solid fa-map-location-dot"></i></button>
+        <% end %>
+      </div>
+    </div>
+  </form>
+</div>
