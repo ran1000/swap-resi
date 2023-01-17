@@ -5,6 +5,6 @@
     <%# <%= f.input :start_date, as: :date, html5: true %>
     <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startDate" } } %>
     <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endDate" }, id: 'end_date' }  %>
-    <%= f.submit "Schedule Your Journey" %>
+    <%= f.submit "Schedule Your Journey", class: "btn btn-success p-2 ps-5 pe-5 mt-4 rounded" %>
   <% end %>
 </div>
