@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get :host_index
     end
   end
+  get "map", to: "pages#map"
   get "messages", to: "pages#messages"
   get "profile", to: "pages#profile"
 end

@@ -1,6 +1,9 @@
 .button-map {
-  height: 45px;
-  width: 45px;
+  height: 38px;
+  width: 38px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .button-back {
@@ -15,8 +18,11 @@
   position: fixed;
   bottom: 30px;
   right: 50px;
-  height: 45px;
-  width: 45px;
+  height: 38px;
+  width: 38px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .card-space-button {

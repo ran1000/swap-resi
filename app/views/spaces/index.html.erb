@@ -1,6 +1,6 @@
-<%= render "shared/search" %>
 <div class="map"></div>
 <div class="container d-flex justify-content-center flex-wrap">
+  <%= render "shared/search" %>
   <% @spaces.each do |space| %>
     <%= link_to space_path(space), class: "space-link" do %>
       <div class="squared-card">
