@@ -1,64 +1,65 @@
-<div class="container-space">
-  <div class="image-banner">
-    <%# Cloudinary Image %>
-  </div>
-
-  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <%# @article.photos.each do |photo| %>
-          <%#= cl_image_tag("THE_IMAGE_ID_FROM_LIBRARY", width: 400, height: 300, crop: :fill) %>
-        <%# end %>
-                <%# space.photos.each do |photo| %>
-          <%#= cl_image_tag photo.key, class: %i[card-img-top]  %>
-        <%# end %>
+<div class="container mt-3">
+  <div class="container">
+    <% if @space.photos[0] == nil %>
+      <div class="space-image">
         <img src="https://images.unsplash.com/photo-1492097631548-189753426f9c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1760&q=80" class="d-block w-100" alt="...">
       </div>
-      <div class="carousel-item">
-        <img src="https://images.unsplash.com/photo-1623500242285-23bfc0b4aa97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" class="d-block w-100" alt="...">
+    <% elsif @space.photos.count == 1 %>
+      <div class="space-image">
+        <%= cl_image_tag @space.photos[0].key %>
       </div>
-      <div class="carousel-item">
-        <img src="https://images.unsplash.com/photo-1550946977-7b22410c82b8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1226&q=80" class="d-block w-100" alt="...">
+    <% elsif @space.photos.count > 1 %>
+      <div id="carouselIndicator" class="carousel slide space-image" data-bs-ride="true">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselIndicator" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselIndicator" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselIndicator" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <% @space.photos.each do |photo| %>
+            <% if @space.photos.index(photo) == 0 %>
+              <div class="carousel-item active">
+                <%= cl_image_tag photo.key %>
+              </div>
+            <% else %>
+              <div class="carousel-item">
+                <%= cl_image_tag photo.key %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicator" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicator" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-    </div>
-    <%# <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button> %>
+    <% end %>
   </div>
 
-  <div class="container pt-3">
+  <div class="container mt-4">
     <h3>
       <%= @space.name %>
     </h3>
-    <p>Description:</p>
-    <p>
-    <%= @space.description %>
-    </p>
-    <p>Cost:</p>
-    <p>
-    <%= @space.daily_cost %> Credits/day
-    </p>
     <p>
       Offered by <%= @space.user.username %>
     </p>
+    <br>
+    <h5>Description:</h5>
+    <p>
+    <%= @space.description %>
+    </p>
+    <h5>Cost:</h5>
+    <p>
+    <%= @space.daily_cost %> Credits/day
+    </p>
     <% if @space.user != current_user %>
       <%= link_to new_space_booking_path(@space) do %>
-          <button class="btn btn-success rounded button-booking">Book Resi</button>
+          <button class="btn btn-success rounded button-booking mt-2">Book Resi</button>
       <% end %>
     <% end %>
   </div>
 </div>
-
-<%= link_to :back do %>
-  <button class="btn btn-success rounded-circle button-back"><i class="fa-solid fa-arrow-left"></i></i></button>
-<% end %>

@@ -3,10 +3,8 @@
   <br>
   <%# Render cards for spaces %>
   <% current_user.spaces.each do |space| %>
-    <h5>
-      <%= space.name %>
-      <%= link_to "Remove Resi", space_path(space), data: {turbo_method: :delete}, class: "btn btn-secondary p-2 ps-5 pe-5 mt-4 rounded" %>
-    </h5>
+    <%= render "shared/card", space: space, delete: true %>
+    <%= link_to "Remove Resi", space_path(space), data: {turbo_method: :delete}, class: "btn btn-secondary p-2 ps-5 pe-5 mt-4 rounded" %>
   <% end %>
   <%# Add a new space %>
   <%= link_to new_space_path do %>
