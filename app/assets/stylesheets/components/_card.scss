@@ -16,17 +16,18 @@
   overflow: hidden;
   border: 0px;
   border-radius: 25px;
-}
 
-.card-image {
-  height: 70%;
-  background-color: $gray;
+  .card-image {
+    height: 70%;
+    background-color: $gray;
 
-  img {
-    height: 100%;
-    object-fit: cover;
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
   }
 }
+
 
 .space-info {
   height: 30%;
@@ -61,4 +62,61 @@
   position: absolute;
   right: 20px;
   bottom: 10px;
+}
+
+.owner-card {
+  position: relative;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.03);
+  min-width: 40%;
+  height: 30rem;
+  background-color: $light-gray;
+  overflow: hidden;
+  border: 0px;
+  border-radius: 25px;
+
+  a {
+    text-decoration: none;
+  }
+
+  .space-info {
+    height: 50%;
+    padding: 15px 20px 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .remove-button {
+      align-self: center;
+      width: 200px;
+    }
+  }
+
+  .card-image {
+    height: 50%;
+    background-color: $gray;
+    padding: 0px;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.request-card {
+  position: relative;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.03);
+  min-width: 40%;
+  background-color: $light-gray;
+  overflow: hidden;
+  border: 0px;
+  border-radius: 25px;
+  padding: 16px;
+}
+
+.pending-confirmation {
+  form {
+    display: flex;
+    align-items: center;
+  }
 }

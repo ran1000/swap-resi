@@ -2,6 +2,6 @@
 <div class="container d-flex justify-content-center flex-wrap">
   <%= render "shared/search" %>
   <% @spaces.each do |space| %>
-    <%= render "shared/card", space: space, delete: false %>
+    <%= render "shared/card", space: space %>
   <% end %>
 </div>
