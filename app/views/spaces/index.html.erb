@@ -17,23 +17,11 @@
             Host : <%= space.user.username %>
           </p>
           <p class="space-cost">
-              <%= space.daily_cost %>
-              <i class="fa-solid fa-coins"></i> / day
+            <%= space.daily_cost %>
+            <i class="fa-solid fa-coins"></i> / day
           </p>
         </div>
       </div>
     <% end %>
   <% end %>
 </div>
-
-<%
-=begin %>
-<%= link_to :back do %>
-  <button class="btn btn-success rounded-circle button-back"><i class="fa-solid fa-arrow-left"></i></i></button>
-<% end %>
-<%
-=end %>
-
-<%= link_to new_space_path do %>
-  <button class="btn btn-success rounded-circle button-new"><i class="fa-solid fa-plus"></i></button>
-<% end %>

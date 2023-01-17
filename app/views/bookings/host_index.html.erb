@@ -1,5 +1,12 @@
 <div class="container">
   <h1>Manage your spaces</h1>
+  <br>
+  <% current_user.spaces.each do |space| %>
+    <h5>
+      <%= space.name %>
+      <%= link_to "Remove Resi", space_path(space), data: {turbo_method: :delete}, class: "btn btn-secondary p-2 ps-5 pe-5 mt-4 rounded" %>
+    </h5>
+  <% end %>
   <% @bookings.each do | booking | %>
     <p>
       <%= booking.space.name %>
