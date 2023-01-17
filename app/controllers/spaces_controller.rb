@@ -33,6 +33,13 @@ class SpacesController < ApplicationController
     end
   end
 
+  def destroy
+    set_space
+    authorize @space
+    @space.destroy!
+    redirect_to host_index_bookings_path, status: :see_other
+  end
+
   private
 
   def set_space
