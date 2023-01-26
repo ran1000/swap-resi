@@ -24,6 +24,9 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     authorize @booking
     if @booking.save!
+      booking_days = (@booking.end_date - @booking.start_date).to_i
+      current_user.credits -= (@booking.space.daily_cost * booking_days)
+      current_user.save!
       redirect_to bookings_path
     else
       render :new, status: :unprocessable_entity
