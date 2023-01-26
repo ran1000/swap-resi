@@ -31,16 +31,27 @@ class BookingsController < ApplicationController
   end
 
   def update
-    if @booking.update(booking_params)
-      # Here I should broadcast_to the BookingChannel
-      BookingChannel.broadcast_to(
-        @booking,
-        @booking.status
-        # render_to_string(host_index_bookings_path, @booking)
-      )
-      # head :ok
+    if @booking.status_pending?
+      if @booking.update(booking_params)
+        BookingChannel.broadcast_to(
+          @booking,
+          @booking.status
+        )
+        update_credits(@booking, @booking.user, @booking.space.user) if @booking.status_accepted?
+        # In case the order has already been accepted or declined
+      else
+        render :new, status: :unprocessable_entity
+      end
     else
-      # unprocessable entry
+      if @booking.update(booking_params)
+        BookingChannel.broadcast_to(
+          @booking,
+          @booking.status
+        )
+        update_credits(@booking, @booking.space.user, @booking.user) if @booking.status_pending?
+      else
+        render :new, status: :unprocessable_entity
+      end
     end
     authorize @booking
   end
@@ -59,5 +70,14 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:message, :start_date, :end_date, :status)
+  end
+
+  def update_credits(booking, debitor, creditor)
+    booking_days = (booking.end_date - booking.start_date).to_i
+    credit_cost = (booking.space.daily_cost * booking_days)
+    debitor.credits -= credit_cost
+    debitor.save!
+    creditor.credits += credit_cost
+    creditor.save!
   end
 end
