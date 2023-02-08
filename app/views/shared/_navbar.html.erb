@@ -16,7 +16,7 @@
           <%= link_to "Bookings", "/bookings", class: "nav-link pe-3 text-dark" %>
         </li>
         <li class="nav-item active">
-          <% if !current_user.spaces.nil? && current_user.spaces.count >= 1 %>
+          <% if current_user && !current_user.spaces.nil? && current_user.spaces.count >= 1 %>
             <%= link_to "Inquiries", "/bookings/host_index", class: "nav-link pe-3 text-dark" %>
           <% end %>
         </li>

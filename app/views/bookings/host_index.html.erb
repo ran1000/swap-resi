@@ -8,7 +8,7 @@
     </div>
   <br>
   <div class="d-flex">
-    <% current_user.spaces.each do |space| %>
+    <%  current_user && !current_user.spaces.nil? && current_user.spaces.each do |space| %>
       <%= render "shared/ownercard", space: space %>
     <% end %>
     <div class="ms-3">

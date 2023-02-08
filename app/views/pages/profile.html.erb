@@ -26,7 +26,7 @@
       <% end %>
     </div>
   </div>
-  <% if current_user.spaces.count < 1 %>
+  <% if  current_user && !current_user.spaces.nil? && current_user.spaces.count < 1 %>
     <hr>
     <div class="d-flex flex-row align-items-center">
       <h3 class="text-success pe-5">Create your first Resi!
