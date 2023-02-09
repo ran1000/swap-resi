@@ -1,30 +1,60 @@
 <div class="banner-home">
 </div>
-<div class="bg-primary container-home">
-  <div class="container pt-5">
-    <h1 class="text-dark fw-bold fs-1 pt-3">Exchange your Creative Residency</h1>
-    <h5 class="text-dark fw-light w-50 pt-3">Get new ideas from different environments and connect with other artists through spaces</h5>
-    <%# <form class="form-inline" action="">
-      <div class="form-group mb-2">
-        <label for="sr-only">Where?</label>
-        <input class="form-control w-25" type="address">
+<div class="container">
+  <%= render "shared/search" %>
+  <div class="container w-100 py-5 ms-0 d-flex flex-column">
+    <div class="d-flex flex-row">
+      <h5 class="text-dark fw-light pt-3 w-75 text-start align-self-center me-4">Find an amazing space for creating your next masterpiece</h5>
+      <div class="img-values"></div>
+    </div>
+    <br>
+    <div class="d-flex flex-row">
+      <div class="img-values"></div>
+      <h5 class="text-dark fw-light pt-3 w-75 text-start align-self-center ms-4">Share your space with the arting community and connect</h5>
+    </div>
+    <br>
+    <div class="d-flex flex-row">
+      <h5 class="text-dark fw-light pt-3 w-75 text-start align-self-center me-4">Exchange experiences and inspiration from magical surroundings</h5>
+      <div class="img-values"></div>
+    </div>
+  </div>
+  <br>
+  <div class="container w-100 py-5 ms-0 d-flex flex-column">
+    <h5 class="text-dark fw-light pb-4 w-75 text-start">Testimonials</h5>
+    <div class="d-flex flex-row w-100">
+      <div class="d-flex flex-column">
+        <%= image_tag "https://images.unsplash.com/photo-1591968743883-decc954ccce8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80", class: "avatar-testimonial align-self-center" %>
+        <h5 class="text-dark fw-light pt-5 text-start">Janis</h5>
+        <p class="text-dark fw-light pt-5 text-start">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p>
+        <h5 class="text-dark fw-light pt-5 text-start"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></i></h5>
       </div>
-      <button class="btn btn-primary mb-2">Search</button>
-    </form> %>
-      <%= link_to spaces_path do %>
-        <button class="btn btn-success p-2 ps-5 pe-5 mt-4 rounded">Start</button>
-      <% end %>
+      <div class="d-flex flex-column">
+        <%= image_tag "https://images.unsplash.com/photo-1591968743883-decc954ccce8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80", class: "avatar-testimonial align-self-center" %>
+        <h5 class="text-dark fw-light pt-5 text-start">Stephan</h5>
+        <p class="text-dark fw-light pt-5 text-start">"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        <h5 class="text-dark fw-light pt-5 text-start"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></h5>
+      </div>
+      <div class="d-flex flex-column">
+        <%= image_tag "https://images.unsplash.com/photo-1591968743883-decc954ccce8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80", class: "avatar-testimonial align-self-center"%>
+        <h5 class="text-dark fw-light pt-5 text-start">Vilma</h5>
+        <p class="text-dark fw-light pt-5 text-start">"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        <h5 class="text-dark fw-light pt-5 text-start"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></h5>
+      </div>
+    </div>
   </div>
 </div>
-<div class="bg-success home-info">
-  <div class="container pt-5 pb-5">
-    <h1 class="text-light fw-bold fs-1 pt-3">About</h1>
-    <h5 class="text-light fw-light w-50 pt-3">This is a modest platform and service developed for empowering creative people and improve collaborations between artists of any kind. We believe in freedom of expression and community exchange as core ingredients for generating evolving values and ideas.</h5>
-  </div>
-  <div class="container pb-5">
-    <h1 class="text-light fw-bold fs-1 pt-3">Contact</h1>
-    <h5 class="text-light fw-light w-50 pt-3"><i class="fa-solid fa-envelope"></i> inbox@swapresi.com</h5>
-  </div>
+<div class="bg-primary home-info">
   <p class="text-black ps-4 pt-3" >This project was built with <i class="fa-solid fa-heart"></i> from
   <a class="text-decoration-none text-dark" href="https://ran1000.github.io/profile/">ran1000</a> for educational purposes.</p>
 </div>
+
+
+
+<%# <div class="container pt-5 pb-5">
+  <h1 class="text-light fw-bold fs-1 pt-3">About</h1>
+  <h5 class="text-light fw-light w-50 pt-3">This is a modest platform and service developed for empowering creative people and improve collaborations between artists of any kind. We believe in freedom of expression and community exchange as core ingredients for generating evolving values and ideas.</h5>
+</div> %>
+<%# <div class="container pb-5">
+  <h1 class="text-light fw-bold fs-1 pt-3">Contact</h1>
+  <h5 class="text-light fw-light w-50 pt-3"><i class="fa-solid fa-envelope"></i> inbox@swapresi.com</h5>
+</div> %>
