@@ -1,17 +1,26 @@
-.navbar-swapresi {
+.navbar-arting {
   justify-content: space-between;
+  background-color: $white;
+  border-bottom: 0.5px solid lightgrey;
 }
 
-.navbar-swapresi .navbar-collapse {
+.navbar-arting .navbar-collapse {
   flex-grow: 0;
 }
 
-.dropdown-profile {
+.dropdown-box {
   overflow: hidden;
 }
 
 .logo-arting{
   color: $success;
+  font-family: $headers-font;
   font-size: 2rem;
   font-weight: 700;
+  padding-left: 12px;
+}
+
+.nav-link-text{
+  padding-left: 8px;
+  font-weight: 500;
 }
