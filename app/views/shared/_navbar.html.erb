@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm bg-primary navbar-swapresi">
   <div class="container-fluid flex-nowrap">
     <%= link_to "/", class: "container-fluid navbar-brand align-self-start" do %>
-      <h3 class="pt-1 text-dark"><i class="fa-solid fa-rotate fs-4"></i> arting</h3>
+      <h3 class="logo-arting">arting</h3>
     <% end %>
     <button class="navbar-toggler align-self-start" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -13,7 +13,9 @@
           <%= link_to "Spaces", "/spaces", class: "nav-link pe-3 text-dark" %>
         </li>
         <li class="nav-item active fle-x-nowrap">
-          <%= link_to "Bookings", "/bookings", class: "nav-link pe-3 text-dark" %>
+          <% if current_user && !current_user.spaces.nil? && current_user.spaces.count >= 1 %>
+          <%= link_to "My Bookings", "/bookings", class: "nav-link pe-3 text-dark" %>
+          <% end %>
         </li>
         <li class="nav-item active">
           <% if current_user && !current_user.spaces.nil? && current_user.spaces.count >= 1 %>
