@@ -14,3 +14,9 @@
 @import "pages/show";
 @import "pages/sessions";
 @import "pages/profile";
+
+.page-container {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}

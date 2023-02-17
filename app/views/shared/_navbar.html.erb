@@ -1,29 +1,29 @@
-<div class="navbar navbar-expand-sm bg-primary navbar-swapresi">
-  <div class="container-fluid flex-nowrap">
-    <%= link_to "/", class: "container-fluid navbar-brand align-self-start" do %>
-      <h3 class="pt-1 text-dark"><i class="fa-solid fa-rotate fs-4"></i> arting</h3>
-    <% end %>
-    <button class="navbar-toggler align-self-start" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<div class="navbar fixed-top navbar-expand-sm bg-primary navbar-arting">
+  <div class="container-fluid">
+    <%= link_to "arting", "/", class: "navbar-brand logo-arting" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <li class="nav-item active">
-          <%= link_to "Spaces", "/spaces", class: "nav-link pe-3 text-dark" %>
+        <li class="nav-item">
+          <%= link_to "Spaces", "/spaces", class: "nav-link nav-link-text #{"active" if current_page?(spaces_path)}" %>
         </li>
-        <li class="nav-item active fle-x-nowrap">
-          <%= link_to "Bookings", "/bookings", class: "nav-link pe-3 text-dark" %>
+        <li class="nav-item">
+          <% if current_user && !current_user.bookings.nil? && current_user.bookings.count >= 1 %>
+          <%= link_to "My Bookings", "/bookings", class: "nav-link nav-link-text #{"active" if current_page?(bookings_path)}" %>
+          <% end %>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item">
           <% if current_user && !current_user.spaces.nil? && current_user.spaces.count >= 1 %>
-            <%= link_to "Inquiries", "/bookings/host_index", class: "nav-link pe-3 text-dark" %>
+            <%= link_to "Inquiries", "/bookings/host_index", class: "nav-link nav-link-text #{"active" if current_page?(host_index_bookings_path)}" %>
           <% end %>
         </li>
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
-            <%= image_tag "https://images.unsplash.com/photo-1591968743883-decc954ccce8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end bg-warning dropdown-profile" aria-labelledby="navbarDropdown">
+            <%= image_tag "https://images.unsplash.com/photo-1591968743883-decc954ccce8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80", class: "navbar-avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end bg-primary dropdown-box" aria-labelledby="navbarDropdown">
               <%= link_to "/profile", class: "dropdown-item" do %>
                     <%= current_user.username.capitalize() %> Profile
               <% end %>
