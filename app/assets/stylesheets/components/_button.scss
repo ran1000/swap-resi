@@ -14,6 +14,24 @@
   width: 45px;
 }
 
+.prim-button{
+  background-color: $success;
+  height: 40px;
+  p{
+    color: $white;
+    font-weight: 500;
+  }
+}
+
+.sec-button{
+  background-color: $white;
+  border: 2px solid $success;
+  height: 40px;
+  p{
+    font-weight: 500;
+  }
+}
+
 .button-new {
   text-decoration: none;
   height: 38px;
