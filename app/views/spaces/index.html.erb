@@ -1,7 +1,9 @@
-<div class="map"></div>
-<div class="container d-flex justify-content-center flex-wrap">
-  <%= render "shared/search" %>
-  <% @spaces.each do |space| %>
-    <%= render "shared/card", space: space %>
-  <% end %>
+<div class="index-container">
+  <div class="map"></div>
+  <div class="container d-flex justify-content-center flex-wrap">
+    <%= render "shared/search" %>
+    <% @spaces.each do |space| %>
+      <%= render "shared/card", space: space %>
+    <% end %>
+  </div>
 </div>
