@@ -9,11 +9,16 @@
   padding: 20px;
   margin: 50px auto;
 
-  .arting-form-inputs{
+  .arting-form-inputs {
     height: 2.5rem;
     background-color: $primary;
     border: 0.7px solid #D9D9D9;
     box-shadow: 0px 2px 2px #D9D9D9;
+  }
+
+  .arting-form-inputs:hover {
+    border: 0.7px solid #b0b0b0;
+    box-shadow: 0px 2px 2px #b0b0b0;
   }
 
   .title-session {
