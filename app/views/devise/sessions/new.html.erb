@@ -1,33 +1,34 @@
 <div class="container pt-3 session">
-  <h2 class="title-session">Log in</h2>
+  <h2 class="title-session text-start">Welcome back</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
     <div class="form-inputs">
       <%= f.input :username,
-                  required: true,
+                  required: false,
                   minlength: "6",
-                  placeholder: "Type your Username",
+                  placeholder: "Barteby",
                   autofocus: true,
-                  input_html: { autocomplete: "username" } %>
+                  input_html: { class: "arting-form-inputs mb-4", autocomplete: "username" } %>
       <%= f.input :email,
-                  required: true,
+                  required: false,
                   pattern: URI::MailTo::EMAIL_REGEXP,
-                  placeholder: "Type your email",
+                  placeholder: "Ex. barteby@mail.com",
                   autofocus: true,
-                  input_html: { autocomplete: "email" } %>
+                  input_html: { class: "arting-form-inputs mb-4", autocomplete: "email" } %>
       <%= f.input :password,
-                  required: true,
+                  required: false,
                   minlength: "6",
-                  placeholder: "Type your password",
-                  input_html: { autocomplete: "current-password" } %>
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                  placeholder: "******",
+                  input_html: { class: "arting-form-inputs mb-4", autocomplete: "current-password" } %>
+      <%= f.input :remember_me,
+                  as: :boolean if devise_mapping.rememberable? %>
     </div>
 
     <div class="form-actions submit-button d-grid gap-2">
-      <%= f.button :submit, "Log in", class: "btn btn-success p-2 mt-4 rounded" %>
+      <%= f.button :submit, "Log in", class: "btn btn-success p-2 mt-5 rounded" %>
     </div>
   <% end %>
-  <div class="links">
+  <div class="links text-start">
     <%= render "devise/shared/links" %>
   </div>
 </div>
