@@ -1,25 +1,27 @@
 <div class="container pt-3 session">
   <h2 class="title-session text-start">Welcome back</h2>
 
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}, validate: true) do |f| %>
     <div class="form-inputs">
       <%= f.input :username,
                   required: false,
                   minlength: "6",
                   placeholder: "Barteby",
                   autofocus: true,
-                  input_html: { class: "arting-form-inputs mb-4", autocomplete: "username" } %>
+                  hint: "Minimum 6 characters",
+                  input_html: { class: "arting-form-inputs mt-3", autocomplete: "username" } %>
       <%= f.input :email,
                   required: false,
                   pattern: URI::MailTo::EMAIL_REGEXP,
                   placeholder: "Ex. barteby@mail.com",
                   autofocus: true,
-                  input_html: { class: "arting-form-inputs mb-4", autocomplete: "email" } %>
+                  input_html: { class: "arting-form-inputs mt-3", autocomplete: "email" } %>
       <%= f.input :password,
                   required: false,
                   minlength: "6",
                   placeholder: "******",
-                  input_html: { class: "arting-form-inputs mb-4", autocomplete: "current-password" } %>
+                  hint: "Minimum 6 characters",
+                  input_html: { class: "arting-form-inputs mt-3", autocomplete: "current-password" } %>
       <%= f.input :remember_me,
                   as: :boolean if devise_mapping.rememberable? %>
     </div>
