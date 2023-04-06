@@ -1,8 +1,6 @@
 .navbar-arting {
   justify-content: space-between;
-  background-color: $white;
-  border-bottom: 0.5px solid lightgrey;
-  height: 80px;
+  border-bottom: 0.5px solid rgba($color: #000000, $alpha: 0.03);
 }
 
 .navbar-arting .navbar-collapse {
