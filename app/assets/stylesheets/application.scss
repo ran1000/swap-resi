@@ -16,7 +16,21 @@
 @import "pages/profile";
 
 .page-container {
-  display: grid;
-  min-height: 100vh;
-  grid-template-rows: auto 1fr auto;
+  margin: 0px;
+  padding: 0px;
+//   display: grid;
+//   min-height: 100vh;
+//   grid-template-rows: auto 1fr auto;
+}
+
+// .navbar-container{
+//   width: 100%;
+// }
+
+.content-container{
+  width: 100%;
+  margin-top: 75px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
