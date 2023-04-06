@@ -9,7 +9,7 @@
   z-index: -1000;
 }
 
-.landing-page-container{
+.footer-container{
   width: 992px;
   margin: 0px auto;
   @media (max-width: 1040px) {
@@ -33,6 +33,7 @@
 }
 
 .footer{
+ width: 100%;
  display: flex;
  bottom: 0px;
  .footer-dev{
