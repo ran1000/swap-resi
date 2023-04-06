@@ -9,6 +9,15 @@
   z-index: -1000;
 }
 
+.values-container{
+  width: 992px;
+  margin: 0px auto;
+  @media (max-width: 1040px) {
+    align-items: center;
+    margin: 0px 24px
+  }
+}
+
 .footer-container{
   width: 992px;
   margin: 0px auto;
@@ -44,6 +53,17 @@
     height: 100%;
     object-fit: cover;
   }
+}
+
+.value-arting{
+  color: $success;
+  font-family: $headers-font;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.value-description{
+  font-size: 0.9rem;
 }
 
 .footer{
