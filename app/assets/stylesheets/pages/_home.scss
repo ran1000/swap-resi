@@ -34,13 +34,6 @@
   color: white;
 }
 
-// .img-values {
-//   background-color: $light-gray;
-//   width: 320px;
-//   border-radius: 35px;
-//   object-fit: cover;
-// }
-
 .img-values-container {
   background-color: $light-gray;
   width: 320px;
@@ -60,10 +53,23 @@
   font-family: $headers-font;
   font-size: 2rem;
   font-weight: 700;
+  padding-bottom: 1rem;
 }
 
 .value-description{
+  width: 60%;
   font-size: 0.9rem;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.final-value{
+  width: 60%;
+  font-size: 1rem;
+  @media (max-width: 990px) {
+    width: 100%;
+  }
 }
 
 .footer{
