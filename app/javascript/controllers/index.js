@@ -12,3 +12,7 @@ application.register("hello", HelloController)
 
 import StatusController from "./status_controller"
 application.register("status", StatusController)
+
+window.onload = function() {
+  window.scrollTo(0, 0);
+}

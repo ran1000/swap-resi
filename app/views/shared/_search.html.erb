@@ -1,7 +1,9 @@
 <div class="search-container my-4 d-flex justify-content-between align-items-end">
   <form action="/spaces" method="GET" class="w-100 row gx-2 align-items-end flex-nowrap" data-turbo="false">
     <div class="col-sm-5 col-7 p-2">
-      <label for="place" class="form-label search-label">Type of Space</label>
+      <% if !current_page?(root_path) %>
+        <label for="place" class="form-label search-label">Type of Space</label>
+      <% end %>
       <input class="form-control arting-form-inputs" type="text" id="place" placeholder="Atelier" name="query" value=<%= params[:query]%> >
     </div>
     <div class="col-4 p-2">
