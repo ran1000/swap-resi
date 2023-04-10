@@ -18,6 +18,7 @@ export default class extends Controller {
     // })
     // Range
     flatpickr(this.startDateTarget, {
+      altInput: true,
       // enableTime: true,
       plugins: [new rangePlugin({ input: "#end_date" })]
     })
