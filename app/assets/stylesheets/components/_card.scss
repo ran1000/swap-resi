@@ -126,3 +126,26 @@
     align-items: center;
   }
 }
+
+.booking-card{
+  display: flex;
+  flex-direction: row;
+  width: 800px;
+  height:400px;
+  background-color: $primary;
+  overflow: hidden;
+  border: 0.7px solid #D9D9D9;
+  box-shadow: 1px 1px 5px #D9D9D9;
+  border-radius: 25px;
+
+  .booking-img{
+    overflow: hidden;
+    img{
+      max-height: 100%;
+    }
+  }
+
+  .booking-text{
+    padding: 16px;
+  }
+}
