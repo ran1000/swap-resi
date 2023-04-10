@@ -21,3 +21,23 @@
     height: 100%;
   }
 }
+
+.space-page {
+  h1,h2,h3,h4,h5,p{
+    font-family: $body-font;
+  }
+  .space-name{
+    font-size: 1.7rem;
+  }
+  .owner-name{
+    font-size: 1.3rem;
+    color: $success;
+    font-weight: 500;
+  }
+  .feature-title{
+    font-size: 1.1rem;
+  }
+  .feature-description{
+    font-size: 1rem;
+  }
+}
