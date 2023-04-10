@@ -1,4 +1,4 @@
-<div class="container mt-3 content-container">
+<div class="container mt-4 space-page">
   <div class="container">
     <% if @space.photos[0] == nil %>
       <div class="space-image">
@@ -39,26 +39,25 @@
       </div>
     <% end %>
   </div>
-
   <div class="container mt-4">
-    <h3>
+    <h1 class="space-name">
       <%= @space.name %>
+    </h1>
+    <h3 class="owner-name">
+      of <%= @space.user.username %>
     </h3>
-    <p>
-      Offered by <%= @space.user.username %>
-    </p>
     <br>
-    <h5>Description:</h5>
-    <p>
-    <%= @space.description %>
+    <h5 class="feature-title">Description:</h5>
+    <p class="feature-description">
+      <%= @space.description %>
     </p>
-    <h5>Cost:</h5>
-    <p>
-    <%= @space.daily_cost %> Credits/day
+    <h5 class="feature-title">Cost:</h5>
+    <p class="feature-description">
+      <%= @space.daily_cost %> <i class="fa-solid fa-coins"></i>/day
     </p>
     <% if @space.user != current_user %>
       <%= link_to new_space_booking_path(@space) do %>
-          <button class="btn btn-success rounded button-booking mt-2">Book Resi</button>
+        <button class="btn btn-success rounded prim-button mt-2 mb-5">Book Resi</button>
       <% end %>
     <% end %>
   </div>

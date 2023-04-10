@@ -26,50 +26,49 @@
       object-fit: cover;
     }
   }
-}
 
-
-.space-info {
-  position: relative;
-  height: 30%;
-  padding: 15px 20px 10px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.space-name {
-  max-width: 200px;
-  font-family: $body-font;
-  font-size: 1rem;
-  color: $dark;
-  font-weight: 500;
-  max-height: 2.5rem;
-  overflow: hidden;
-  margin: 0px;
-
-  :hover {
-    transform: translateX(-50px);
+  .space-info {
+    position: relative;
+    height: 30%;
+    padding: 15px 20px 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
-}
 
-.space-owner {
-  font-family: $body-font;
-  font-weight: 500;
-  font-size: 1rem;
-  color: $success;
-  margin-bottom: 0px;
-}
+  .space-name {
+    max-width: 200px;
+    font-family: $body-font;
+    font-size: 1rem;
+    color: $dark;
+    font-weight: 500;
+    max-height: 2.5rem;
+    overflow: hidden;
+    margin: 0px;
 
-.space-cost {
-  font-family: $body-font;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: $dark;
-  margin: 0px;
-  position: absolute;
-  right: 16px;
-  top: 12px;
+    :hover {
+      transform: translateX(-50px);
+    }
+  }
+
+  .space-owner {
+    font-family: $body-font;
+    font-weight: 500;
+    font-size: 1rem;
+    color: $success;
+    margin-bottom: 0px;
+  }
+
+  .space-cost {
+    font-family: $body-font;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: $dark;
+    margin: 0px;
+    position: absolute;
+    right: 16px;
+    top: 12px;
+  }
 }
 
 .owner-card {

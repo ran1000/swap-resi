@@ -17,9 +17,18 @@
 .prim-button{
   background-color: $success;
   height: 40px;
+  padding-left: 16px;
+  padding-right: 16px;
   p{
     color: $white;
-    font-weight: 500;
+    font-family: $body-font;
+    font-weight: 700;
+  }
+
+}
+@media (max-width: 768px) {
+  .prim-button {
+    width: 100%;
   }
 }
 
@@ -28,6 +37,7 @@
   border: 2px solid $success;
   height: 40px;
   p{
+    font-family: $body-font;
     font-weight: 500;
   }
 }
