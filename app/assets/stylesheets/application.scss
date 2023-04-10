@@ -9,23 +9,19 @@
 @import "flatpickr/dist/themes/material_orange.css";
 
 // Your CSS partials
-@import "pages/index";
 @import "pages/home";
-@import "pages/show";
-@import "pages/sessions";
+@import "pages/index";
+@import "pages/new_booking";
 @import "pages/profile";
+@import "pages/sessions";
+@import "pages/show";
+@import "pages/booking_index";
 
 .page-container {
   margin: 0px;
   padding: 0px;
-//   display: grid;
-//   min-height: 100vh;
-//   grid-template-rows: auto 1fr auto;
-}
 
-// .navbar-container{
-//   width: 100%;
-// }
+}
 
 .content-container{
   width: 100%;
@@ -33,4 +29,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (min-width: 1000px) {
+    width: 1050px;
+    padding: 0px;
+  }
 }

@@ -1,50 +1,61 @@
-<div class="container content-container">
-  <h1>Bookings</h1>
-  <br>
-  <div class="d-flex flex-wrap">
-    <% @bookings.each do |booking| %>
-      <div class="card m-2 card-spaces"
-           data-controller="status"
-           data-status-booking-id-value="<%= booking.id %>" >
-        <div class="card-body text-dark">
-          <h5 class="card-title pb-5">
-              <%= booking.space.name %>
-          </h5>
-          <p class="card-text">
-            Booked in:
-            <%= booking.updated_at.strftime("%B %d, %Y") %>
-          </p>
-          <p class="card-text">
-            Resi from:
-            <%= booking.space.user.username %>
-          </p>
-          <p class="card-text">
-            Booked from:
-            <%= booking.user.username %>
-          </p>
-          <p class="card-text">
-            Status:
-            <%# The changing color must be added through js, dynamic when updated %>
-            <strong data-status-target="bookingStatus"
-                    class=<%= booking.status == "accepted" ? "text-success" : "text-danger" %> >
-              <%= booking.status %>
-            </strong>
-          </p>
-
-          <p class="card-text">
-            from <%= booking.start_date.strftime("%B %d, %Y") %> to <%= booking.end_date.strftime("%B %d, %Y") %>
-          </p>
-          <p class="card-text description-space">
-            <%= booking.message %>
-          </p>
-          <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-            <button class="btn btn-primary card-space-button">Delete Booking</button>
+<div class="content-container mx-auto">
+  <div>
+    <h1 class="mx-5 mt-4">My Bookings</h1>
+    <br>
+    <div class="d-flex flex-wrap mx-5">
+      <% @bookings.each do |booking| %>
+        <div class="booking-card mb-3"
+            data-controller="status"
+            data-status-booking-id-value="<%= booking.id %>" >
+          <% if booking == Booking.first %>
+            <div class="booking-img">
+              <% if booking.space.photos[0] == nil %>
+                  <img src="https://images.unsplash.com/photo-1492097631548-189753426f9c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1760&q=80" class="d-block w-100" alt="...">
+              <% else booking.space.photos.count == 1 %>
+                  <%= cl_image_tag booking.space.photos[0].key %>
+              <% end %>
+            </div>
           <% end %>
+          <div class="booking-text text-dark">
+            <h5 class="">
+                <%= booking.space.name %>
+            </h5>
+            <p class="">
+              Booked in:
+              <%= booking.updated_at.strftime("%B %d, %Y") %>
+            </p>
+            <p class="">
+              Resi from:
+              <%= booking.space.user.username %>
+            </p>
+            <p class="">
+              Booked from:
+              <%= booking.user.username %>
+            </p>
+            <p class="">
+              Status:
+              <%# The changing color must be added through js, dynamic when updated %>
+              <strong data-status-target="bookingStatus"
+                      class=<%= booking.status == "accepted" ? "text-success" : "text-danger" %> >
+                <%= booking.status %>
+              </strong>
+            </p>
+
+            <p class="">
+              from <%= booking.start_date.strftime("%B %d, %Y") %> to <%= booking.end_date.strftime("%B %d, %Y") %>
+            </p>
+            <p class="">
+              <%= booking.message %>
+            </p>
+            <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <button class="btn btn-primary sec-button">Delete Booking</button>
+            <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
+    </div>
+    <%= link_to host_index_bookings_path do %>
+      <button class="btn btn-success p-2 ps-5 pe-5 mt-4 rounded mx-5">Booking Inquiries</button>
     <% end %>
   </div>
-  <%= link_to host_index_bookings_path do %>
-    <button class="btn btn-success p-2 ps-5 pe-5 mt-4 rounded">Booking requests</button>
-  <% end %>
 </div>

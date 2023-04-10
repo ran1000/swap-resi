@@ -1,78 +1,92 @@
 <div class="banner-home"></div>
-<div class="landing-page-container">
-  <%= render "shared/search" %>
-  <div class="container w-100 py-5 ms-0 d-flex flex-column">
-    <div class="d-flex flex-sm-row flex-column py-3">
-      <div class="d-flex flex-column justify-content-start pe-5">
-        <h5 class="value-arting">Pop Up Your Creativity</h5>
-        <p class="value-description">Our platform empowers artists to pop up their creativity by connecting them with other artists worldwide to swap ateliers. With our service, artists of all types can discover new places and gain inspiration for their art, opening up new horizons and creative environments to explore.</p>
+<div class="content-container mt-5 mx-auto">
+  <div class="landing-page-container">
+    <h1 class="action-title mb-4 px-5">Looking for a new creative space ?</h1>
+    <%= render "shared/search" %>
+    <div class="container w-100 py-5 ms-0 d-flex flex-column px-5">
+      <div class="d-flex flex-md-row flex-column py-3">
+        <div class="d-flex flex-column justify-content-start pe-5">
+          <h5 class="value-arting">Pop Up Your Creativity</h5>
+          <p class="value-description">Our platform empowers artists to pop up their creativity by connecting them with other artists worldwide to swap ateliers. With our service, artists of all types can discover new places and gain inspiration for their art, opening up new horizons and creative environments to explore.</p>
+        </div>
+        <div class="img-values-container" >
+          <%= image_tag("https://images.unsplash.com/photo-1611244420030-b22f359eee31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80", alt: "Someone starting to paint.")%>
+        </div>
       </div>
-      <div class="img-values-container" >
-        <%= image_tag("https://images.unsplash.com/photo-1611244420030-b22f359eee31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80", alt: "Someone starting to paint.")%>
+      <br>
+      <div class="d-flex flex-md-row flex-column py-3">
+        <div class="d-flex flex-column justify-content-start pe-5">
+          <h5 class="value-arting">Make It Bloom</h5>
+          <p class="value-description">Our platform encourages creativity by helping artists swap ateliers to learn new techniques, gain fresh perspectives, and develop their skills. Join us to make your talent bloom and take your art to the next level.</p>
+        </div>
+        <div class="img-values-container" >
+          <%= image_tag("https://images.unsplash.com/photo-1490186969638-fe0c8aea80bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1086&q=80", alt: "Painting brushes and flowers.")%>
+        </div>
       </div>
+      <br>
+      <div class="d-flex flex-md-row flex-column py-3">
+        <div class="d-flex flex-column justify-content-start pe-5">
+          <h5 class="value-arting">Swap It</h5>
+          <p class="value-description">Our platform simplifies swapping by connecting you with like-minded artists who are interested in sharing ateliers. With a new space comes a new community, and our intuitive service makes it easy to find and connect with others. Swap with confidence and focus on your art, thanks to our secure and reliable platform.</p>
+        </div>
+        <div class="img-values-container">
+          <%= image_tag("https://images.unsplash.com/photo-1580982333389-cca46f167381?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80", alt: "Two people sharing a creative space")%>
+        </div>
+      </div>
+      <p class="pt-5 final-value">Join our platform today and start popping up your creativity, making it bloom, and swapping your atelier with other artists from around the world. Let's connect and create something beautiful together!</p>
     </div>
     <br>
-    <div class="d-flex flex-sm-row flex-column py-3">
-      <div class="img-values-container" >
-        <%= image_tag("https://images.unsplash.com/photo-1490186969638-fe0c8aea80bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1086&q=80", alt: "Painting brushes and flowers.")%>
-      </div>
-      <div class="d-flex flex-column justify-content-start ps-5">
-        <h5 class="value-arting">Make It Bloom</h5>
-        <p class="value-description">Our platform encourages creativity by helping artists swap ateliers to learn new techniques, gain fresh perspectives, and develop their skills. Join us to make your talent bloom and take your art to the next level.</p>
-      </div>
-    </div>
-    <br>
-    <div class="d-flex flex-sm-row flex-column py-3">
-      <div class="d-flex flex-column justify-content-start pe-5">
-        <h5 class="value-arting">Swap It</h5>
-        <p class="value-description">Our platform simplifies swapping by connecting you with like-minded artists who are interested in sharing ateliers. With a new space comes a new community, and our intuitive service makes it easy to find and connect with others. Swap with confidence and focus on your art, thanks to our secure and reliable platform.</p>
-      </div>
-      <div class="img-values-container">
-        <%= image_tag("https://images.unsplash.com/photo-1580982333389-cca46f167381?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80", alt: "Two people sharing a creative space")%>
-      </div>
-    </div>
-    <p class="py-3 final-value">Join our platform today and start popping up your creativity, making it bloom, and swapping your atelier with other artists from around the world. Let's connect and create something beautiful together!</p>
-  </div>
-  <br>
-  <div class="container py-3 ms-0 d-flex flex-column">
-    <h5 class="text-dark fw-light pb-4 w-75 text-start">Testimonials</h5>
-    <div class="d-flex flex-sm-row flex-column">
-      <div class="d-flex flex-column">
-        <%= image_tag("https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80", class: "avatar-testimonial align-self-center", alt: "Profile picture of Leyla") %>
-        <h5 class="text-dark fw-light pt-5 text-start">Leyla</h5>
-        <p class="text-dark fw-light pt-5 text-start pe-2 testim-text">"Swapping my atelier with another artist through this platform has been an incredible experience. I was able to discover a new creative environment and learn from a different perspective. The process was smooth and easy, and I connected with another artist who has now become a friend and a source of inspiration. I highly recommend this platform to any artist looking to expand their creative horizons."</p>
-        <h5 class="text-dark fw-light pt-5 text-start"><i class="fa-solid fa-star text-success"></i><i class="fa-solid fa-star text-success"></i><i class="fa-solid fa-star text-success"></i><i class="fa-solid fa-star text-success"></i><i class="fa-regular fa-star text-success"></i></i></h5>
-      </div>
-      <div class="d-flex flex-column">
-        <%= image_tag("https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80", class: "avatar-testimonial align-self-center", alt: "Profile picture of Stephan") %>
-        <h5 class="text-dark fw-light pt-5 text-start">Stephan</h5>
-        <p class="text-dark fw-light pt-5 text-start pe-2 testim-text">"As an artist, I've always struggled with finding the right workspace to unleash my creativity. This platform has been a game changer for me. By swapping my atelier, I've been able to discover new spaces and techniques, and gain inspiration from other artists. The process is user-friendly and secure, and I've had nothing but positive experiences. I can't recommend this platform enough."</p>
-        <h5 class="text-dark fw-light pt-5 text-start"><i class="fa-solid fa-star text-success"></i><i class="fa-solid fa-star text-success"></i><i class="fa-solid fa-star text-success"></i><i class="fa-solid fa-star text-success"></i><i class="fa-solid fa-star text-success"></i></h5>
-      </div>
-      <div class="d-flex flex-column">
-        <%= image_tag("https://images.unsplash.com/photo-1523512090443-2d7df8b40358?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80", class: "avatar-testimonial align-self-center", alt: "Profile picture of Tilla") %>
-        <h5 class="text-dark fw-light pt-5 text-start">Tilla</h5>
-        <p class="text-dark fw-light pt-5 text-start pe-2 testim-text">"I was skeptical about swapping my atelier at first, but this platform made the process so easy and straightforward. I was able to connect with another artist in my area and swap our spaces for a few weeks. It was such a refreshing change of pace and helped me break out of my creative rut. I can't wait to swap again and see where it takes me next. This platform is a must-try for any artist looking to step out of their comfort zone."</p>
-        <h5 class="text-dark fw-light pt-5 text-start"><i class="fa-solid fa-star text-success"></i><i class="fa-solid fa-star text-success"></i><i class="fa-solid fa-star text-success"></i><i class="fa-solid fa-star text-success"></i><i class="fa-solid fa-star text-success"></i></h5>
+    <div class="container px-5 pb-3 ms-0 d-flex flex-column">
+      <h5 class="text-dark fw-light fs-3 pb-5 w-75 text-start">Testimonials</h5>
+      <div class="row col-md g-3">
+        <div class="col-md row">
+          <div>
+            <div class="img-fluid">
+              <%= image_tag("https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80", class: "avatar-testimonial align-self-center", alt: "Profile picture of Leyla") %>
+            </div>
+            <h5 class="text-dark fw-light pt-5 text-start">Leyla</h5>
+            <h5 class="text-dark fw-light pt-3 text-start"><i class="fa-solid fa-star text-success"></i><i class="fa-solid fa-star text-success"></i><i class="fa-solid fa-star text-success"></i><i class="fa-solid fa-star text-success"></i><i class="fa-regular fa-star text-success"></i></i></h5>
+            <p class="text-dark fw-light pt-2 text-start testim-text">"It was an amazing experience. I discovered a new creative environment, gained perspective, and made a new inspiring friend. The process was smooth and highly recommended for any artist looking to broaden their horizons."</p>
+          </div>
+        </div>
+        <div class="col-md row">
+          <div>
+            <div class="img-fluid">
+              <%= image_tag("https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80", class: "avatar-testimonial align-self-center", alt: "Profile picture of Stephan") %>
+            </div>
+            <h5 class="text-dark fw-light pt-5 text-start">Stephan</h5>
+            <h5 class="text-dark fw-light pt-3 text-start"><i class="fa-solid fa-star text-success"></i><i class="fa-solid fa-star text-success"></i><i class="fa-solid fa-star text-success"></i><i class="fa-solid fa-star text-success"></i><i class="fa-solid fa-star text-success"></i></h5>
+            <p class="text-dark fw-light pt-2 text-start testim-text">"Exchanging my space through this platform allowed me to discover new spaces and techniques, gain inspiration from other artists, and has been a game changer for me."</p>
+          </div>
+        </div>
+        <div class="col-md row">
+          <div>
+            <div class="img-fluid">
+              <%= image_tag("https://images.unsplash.com/photo-1523512090443-2d7df8b40358?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80", class: "avatar-testimonial align-self-center", alt: "Profile picture of Tilla") %>
+            </div>
+            <h5 class="text-dark fw-light pt-5 text-start">Tilla</h5>
+            <h5 class="text-dark fw-light pt-3 text-start"><i class="fa-solid fa-star text-success"></i><i class="fa-solid fa-star text-success"></i><i class="fa-solid fa-star text-success"></i><i class="fa-solid fa-star text-success"></i><i class="fa-solid fa-star text-success"></i></h5>
+            <p class="text-dark fw-light pt-2 text-start testim-text">"Swapping my studio through this platform was easy and refreshing, connecting me with another artist in my area and helping me break out of a creative rut. Highly recommended for any artist looking to step out of their comfort zone."</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 <div class="bg-info footer pt-5 mt-3">
-  <div class="footer-container">
+  <div class="footer-container px-5 m-0">
     <p class="logo-arting-footer py-3">arting</p>
     <div class="d-flex flex-sm-row flex-column">
-      <div class="footer-left w-25">
-        <h5 class="py-3">Project</h5>
+      <div class="footer-left w-50">
+        <h5 class="py-3">_Project</h5>
         <p>About us</p>
-        <p>News</p>
         <p>Community</p>
         <p>Spaces</p>
         <p>Manifesto</p>
         <p>Get in touch</p>
       </div>
       <div class="footer-right">
-        <h5 class="py-4">Social</h5>
+        <h5 class="py-4">_Social</h5>
         <div class="social-links">
           <a href="/"><i class="fa-brands fa-facebook pe-2"></i></a>
           <a href="/"><i class="fa-brands fa-instagram pe-2"></i></a>
@@ -80,7 +94,7 @@
         </div>
       </div>
     </div>
-    <p class="text-black pt-5 footer-dev" >This project was built with <i class="fa-solid fa-heart"></i> from
+    <p class="text-black pt-5 footer-dev" >This project is built with <i class="fa-solid fa-heart"></i> from
     <a class="text-decoration-none text-dark" href="https://ran1000.github.io/profile/">ran1000</a></p>
   </div>
 </div>
