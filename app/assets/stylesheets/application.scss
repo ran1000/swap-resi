@@ -17,10 +17,14 @@
 @import "pages/show";
 @import "pages/booking_index";
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden
+}
+
 .page-container {
   margin: 0px;
   padding: 0px;
-
 }
 
 .content-container{
