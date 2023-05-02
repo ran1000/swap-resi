@@ -15,6 +15,5 @@ export default class extends Controller {
       { channel: "BookingChannel", id: this.bookingIdValue },
       { received: data => this.changeStatus(data) }
     )
-    // console.log(`Subscribe to the booking with the id ${this.bookingIdValue}`);
   }
 }
