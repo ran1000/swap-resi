@@ -1,7 +1,11 @@
 .cookies-footer{
   position: fixed;
   height: 100px;
-  bottom: 0px;
+  bottom: 10px;
   width: 50%;
   margin-left: 25%;
+  @media (max-width: 700px) {
+    width: 90%;
+    margin-left: 5%;
+  }
 }

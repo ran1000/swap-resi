@@ -8,7 +8,7 @@
           </div>
           <div class="col-4">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#cookieModal">
+            <button type="button" class="btn btn-success prim-button float-end" data-bs-toggle="modal" data-bs-target="#cookieModal">
               Learn More
             </button>
           </div>
@@ -30,12 +30,12 @@
             <%= button_to "Reject",
               cookie_consent_path(consent: false),
               method: :post,
-              class: "btn btn-secondary",
+              class: "btn btn-secondary sec-button",
               data: { action: "click->cookie-modal#hideModal" } %>
             <%= button_to "Accept",
               cookie_consent_path(consent: true),
               method: :post,
-              class: "btn btn-success",
+              class: "btn btn-success prim-button",
               data: { action: "click->cookie-modal#hideModal" } %>
           </div>
         </div>

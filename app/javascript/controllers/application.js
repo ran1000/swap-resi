@@ -6,4 +6,8 @@ const application = Application.start()
 application.debug = false
 window.Stimulus   = application
 
+window.onload = function() {
+  window.scrollTo(0, 0);
+}
+
 export { application }
