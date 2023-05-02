@@ -1,10 +1,19 @@
 <%= turbo_frame_tag :cookie_consent do %>
-<div class="content-container">
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
-  </button>
-
+  <div class="cookies-footer">
+    <div class="card">
+      <div class="card-body row">
+        <div class="col-8">
+          <p class="text-center">This website uses cookies.</p>
+        </div>
+        <div class="col-4">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Learn More
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -23,5 +32,4 @@
       </div>
     </div>
   </div>
-</div>
 <% end %>
