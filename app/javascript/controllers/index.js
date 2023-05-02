@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import CookieModalController from "./cookie_modal_controller"
+application.register("cookie-modal", CookieModalController)
+
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
@@ -12,7 +15,3 @@ application.register("hello", HelloController)
 
 import StatusController from "./status_controller"
 application.register("status", StatusController)
-
-window.onload = function() {
-  window.scrollTo(0, 0);
-}

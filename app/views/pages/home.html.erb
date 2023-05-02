@@ -95,7 +95,9 @@
       </div>
     </div>
     <p class="text-black pt-5 footer-dev" >This project is built with <i class="fa-solid fa-heart"></i> from
-    <a class="text-decoration-none text-dark" href="https://ran1000.github.io/profile/">ran1000</a></p>
+    <a class="text-decoration-none text-dark" href="https://ran1000.github.io/profile/">ran1000</a>.
+    You have <%= session[:cookie_consent] == "true" ? "accepted" : "not accepted" %> cookies for this website.
+    </p>
   </div>
 </div>
 
