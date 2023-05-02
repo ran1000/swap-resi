@@ -14,7 +14,7 @@
     <div class="page-container">
       <%= render "shared/navbar" %>
       <%= yield %>
-      <%= turbo_frame_tag :cookie_consent, src: cookies_path if session[:cookie_consent].nil? %>
+      <%= turbo_frame_tag :cookie_consent, src: cookies_path if session[:cookie_consent] == "false" || session[:cookie_consent].nil? %>
     </div>
     <%= render "shared/flashes" %>
   </body>
