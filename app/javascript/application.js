@@ -6,5 +6,3 @@ import "bootstrap";
 import '@client-side-validations/client-side-validations/src'
 import '@client-side-validations/simple-form/src/index.bootstrap4';
 require("jquery");
-require(rails.validations);
-require(rails.validations.simple_form.bootstrap4);

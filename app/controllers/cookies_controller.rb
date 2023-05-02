@@ -5,9 +5,8 @@ class CookiesController < ApplicationController
   end
 
   def consent
-    # 1. Ask User for consent and store in a variable
-    # 2. Track Everything if consnt is true
-    # 3. Remove cookie banner
+    session[:cookie_consent] = params[:consent].presence
+    render turbo_stream: turbo_stream.remove(:cookie_consent)
   end
 
   def policy
