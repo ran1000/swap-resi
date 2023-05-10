@@ -1,10 +1,13 @@
 @import "../components/forms";
 
 .session {
-  // width: 60vw;
-  // height: 70vh;
-  // min-height: 600px;
   margin-top: 70px;
+
+  @media (max-width: 720px) {
+    .reverse-container {
+      flex-direction: column-reverse;
+    }
+  }
 
   .title-session {
     padding-top: 20px;
@@ -32,9 +35,6 @@
   }
 
   .session-pic {
-    // min-width: 300px;
-    // max-width: 500px;
-
     img{
       width: 100%
     }
