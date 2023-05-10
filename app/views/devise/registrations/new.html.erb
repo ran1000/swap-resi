@@ -1,5 +1,5 @@
-<div class="container pt-3 session">
-  <div class="row">
+<div class="container-fluid session">
+  <div class="container-md row">
     <div class="session-form col">
       <h2 class="title-session">Sign up</h2>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}, validate: true) do |f| %>
@@ -39,9 +39,9 @@
     </div>
     <div class="session-pic col align-self-center p-5">
       <% if Rails.env.production? %>
-        <%= cl_image_tag("hiksgvoqk9dusacrxqfn.png", width: 500, height: 500, crop: "pad") %>
+        <%= cl_image_tag("hiksgvoqk9dusacrxqfn.png", crop: "pad") %>
       <% else %>
-        <%= cl_image_tag("useem4xq6ebyvhsfomob.png", width: 500, height: 500, crop: "pad") %>
+        <%= cl_image_tag("useem4xq6ebyvhsfomob.png", crop: "pad") %>
       <% end %>    </div>
   </div>
 </div>

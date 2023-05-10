@@ -1,7 +1,7 @@
-<div class="container pt-3 session">
-  <div class="row">
-    <div class="session-form col">
-      <h2 class="title-session text-start">Welcome back</h2>
+<div class="container-fluid session">
+  <div class="container-md mx-auto row">
+    <h2 class="title-session text-start">Welcome back</h2>
+    <div class="session-form col-md-6">
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}, validate: true) do |f| %>
         <div class="form-inputs">
           <%= f.input :username,
@@ -34,11 +34,11 @@
         <%= render "devise/shared/links" %>
       </div>
     </div>
-    <div class="session-pic col align-self-center p-5">
+    <div class="session-pic align-self-center p-5 col-md-6">
       <% if Rails.env.production? %>
-        <%= cl_image_tag("hiksgvoqk9dusacrxqfn.png", width: 500, height: 500, crop: "pad") %>
+        <%= cl_image_tag("hiksgvoqk9dusacrxqfn.png", crop: "pad") %>
       <% else %>
-        <%= cl_image_tag("useem4xq6ebyvhsfomob.png", width: 500, height: 500, crop: "pad") %>
+        <%= cl_image_tag("useem4xq6ebyvhsfomob.png", crop: "pad") %>
       <% end %>
     </div>
   </div>
