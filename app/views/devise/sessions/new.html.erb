@@ -2,10 +2,10 @@
   <div class="container-md">
     <h2 class="title-session text-start">Welcome back</h2>
   </div>
-  <div class="container-md mx-auto reverse-container row">
+  <div class="container-md h-100 mx-auto reverse-container row">
     <div class="session-form col-md-6">
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}, validate: true) do |f| %>
-        <div class="form-inputs">
+        <div class="session-form">
           <%= f.input :username,
                       required: false,
                       minlength: "6",
