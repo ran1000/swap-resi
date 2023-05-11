@@ -1,10 +1,12 @@
 <div class="container-fluid session">
-  <div class="container-md row">
-    <div class="session-form col">
-      <h2 class="title-session">Sign up</h2>
+  <div class="container-md">
+    <h2 class="title-session text-start">Sign up</h2>
+  </div>
+  <div class="container-md mx-auto reverse-container row">
+    <div class="session-form col-md-6">
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}, validate: true) do |f| %>
         <%= f.error_notification %>
-        <div class="form-inputs">
+        <div class="session-form">
           <%= f.input :username,
                       required: false,
                       minlength: "6",
@@ -37,11 +39,12 @@
         <%= render "devise/shared/links" %>
       </div>
     </div>
-    <div class="session-pic col align-self-center p-5">
+    <div class="session-pic align-self-center p-4 col-md-6">
       <% if Rails.env.production? %>
         <%= cl_image_tag("hiksgvoqk9dusacrxqfn.png", crop: "pad") %>
       <% else %>
         <%= cl_image_tag("useem4xq6ebyvhsfomob.png", crop: "pad") %>
-      <% end %>    </div>
+      <% end %>
+    </div>
   </div>
 </div>
