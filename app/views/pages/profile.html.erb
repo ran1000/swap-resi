@@ -37,4 +37,13 @@
       <% end %>
     </div>
   <% end %>
+  <div class="d-flex align-items-center mt-3">
+    <%= link_to new_space_path do %>
+      <button class="btn btn-success rounded-circle button-new me-3"><i class="fa-solid fa-plus"></i></button>
+    <% end %>
+      <h5 class="text-success my-auto">Add a new resi</h5>
+  </div>
+  <%  current_user && !current_user.spaces.nil? && current_user.spaces.each do |space| %>
+    <%= render "shared/ownercard", space: space %>
+  <% end %>
 </div>
