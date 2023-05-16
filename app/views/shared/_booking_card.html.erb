@@ -14,7 +14,9 @@
       <div class="d-flex justify-content-between align-items-center">
         <div class="d-flex">
           <p class="my-auto" >
-            This booking is <strong data-status-target="bookingStatus" ><%= booking.status %></strong>
+            This booking is <strong
+            data-status-target="bookingStatus"
+            class="text-info"><%= booking.status %></strong>
           </p>
         </div>
         <div class="row">
@@ -34,7 +36,7 @@
       </div>
     <% else %>
       <p>
-        <%= booking.status %>
+        <strong class="text-success"><%= booking.status %></strong>
         <span>
           <%= simple_form_for(booking) do |f| %>
               <%= f.input :status, as: :hidden, input_html: { value: "pending" } %>
