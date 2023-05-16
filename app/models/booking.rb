@@ -12,6 +12,14 @@ class Booking < ApplicationRecord
     status == "pending"
   end
 
+  def accepted?
+    status == "accepted"
+  end
+
+  def declined?
+    status == "declined"
+  end
+
   validates :message, presence: true, length: { minimum: 6 }
   validates :start_date, presence: true
   validates :end_date, presence: true
