@@ -4,9 +4,9 @@
     <br>
     <h5>Pending</h5>
     <br>
-    <div class="d-flex">
-      <div class="">
-        <% @bookings.each do | booking | %>
+    <div>
+      <% @bookings.each do | booking | %>
+        <% if booking.pending? %>
           <div class="request-card">
             <p> Booked by:
               <%= booking.user.username %>
@@ -26,17 +26,19 @@
                       This booking is <strong data-status-target="bookingStatus" ><%= booking.status %></strong>
                     </p>
                   </div>
-                  <div class="pending-confirmation">
-                    <%= simple_form_for(booking) do |f| %>
-                        <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
-                        <%= f.submit "Accept", class: "btn btn-success p-2 ps-3 pe-3 rounded" %>
-                    <% end %>
-                  </div>
-                  <div class="pending-confirmation">
-                    <%= simple_form_for(booking) do |f| %>
-                        <%= f.input :status, as: :hidden, input_html: { value: "declined" } %>
-                        <%= f.submit "Decline", class: "btn btn-secondary p-2 ps-3 pe-3 rounded" %>
-                    <% end %>
+                  <div class="row">
+                    <div class="pending-confirmation col">
+                      <%= simple_form_for(booking) do |f| %>
+                          <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
+                          <%= f.submit "Accept", class: "btn btn-success p-2 ps-3 pe-3 rounded" %>
+                      <% end %>
+                    </div>
+                    <div class="pending-confirmation col">
+                      <%= simple_form_for(booking) do |f| %>
+                          <%= f.input :status, as: :hidden, input_html: { value: "declined" } %>
+                          <%= f.submit "Decline", class: "btn btn-secondary p-2 ps-3 pe-3 rounded" %>
+                      <% end %>
+                    </div>
                   </div>
                 </div>
               <% else %>
@@ -53,7 +55,7 @@
             </div>
           </div>
         <% end %>
-      </div>
+      <% end %>
     </div>
     <br>
     <h5>Accepted</h5>
