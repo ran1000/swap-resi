@@ -7,53 +7,7 @@
     <div>
       <% @bookings.each do | booking | %>
         <% if booking.pending? %>
-          <div class="request-card">
-            <p> Booked by:
-              <%= booking.user.username %>
-              <span>on <%= booking.updated_at.strftime("%B %d, %Y") %></span>
-            </p>
-            <p> Message:
-              <%= booking.message %>
-            </p>
-            <%# We could implement an AJAX req for rerendering a part of the page on click or use a disable button %>
-            <div class="status"
-                data-controller="status"
-                data-status-booking-id-value="<%= booking.id %>" >
-              <% if booking.pending? %>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="d-flex">
-                    <p class="my-auto" >
-                      This booking is <strong data-status-target="bookingStatus" ><%= booking.status %></strong>
-                    </p>
-                  </div>
-                  <div class="row">
-                    <div class="pending-confirmation col">
-                      <%= simple_form_for(booking) do |f| %>
-                          <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
-                          <%= f.submit "Accept", class: "btn btn-success p-2 ps-3 pe-3 rounded" %>
-                      <% end %>
-                    </div>
-                    <div class="pending-confirmation col">
-                      <%= simple_form_for(booking) do |f| %>
-                          <%= f.input :status, as: :hidden, input_html: { value: "declined" } %>
-                          <%= f.submit "Decline", class: "btn btn-secondary p-2 ps-3 pe-3 rounded" %>
-                      <% end %>
-                    </div>
-                  </div>
-                </div>
-              <% else %>
-                <p>
-                  <%= booking.status %>
-                  <span>
-                    <%= simple_form_for(booking) do |f| %>
-                        <%= f.input :status, as: :hidden, input_html: { value: "pending" } %>
-                        <%= f.submit "Cancel Confirmation", class: "btn btn-success p-2 ps-5 pe-5 mt-4 rounded" %>
-                    <% end %>
-                  </span>
-                </p>
-              <% end %>
-            </div>
-          </div>
+          <%= render "shared/booking_card", booking: booking %>
         <% end %>
       <% end %>
     </div>
@@ -63,53 +17,7 @@
     <div>
       <% @bookings.each do | booking | %>
         <% if booking.accepted? %>
-          <div class="request-card">
-            <p> Booked by:
-              <%= booking.user.username %>
-              <span>on <%= booking.updated_at.strftime("%B %d, %Y") %></span>
-            </p>
-            <p> Message:
-              <%= booking.message %>
-            </p>
-            <%# We could implement an AJAX req for rerendering a part of the page on click or use a disable button %>
-            <div class="status"
-                data-controller="status"
-                data-status-booking-id-value="<%= booking.id %>" >
-              <% if booking.pending? %>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="d-flex">
-                    <p class="my-auto" >
-                      This booking is <strong data-status-target="bookingStatus" ><%= booking.status %></strong>
-                    </p>
-                  </div>
-                  <div class="row">
-                    <div class="pending-confirmation col">
-                      <%= simple_form_for(booking) do |f| %>
-                          <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
-                          <%= f.submit "Accept", class: "btn btn-success p-2 ps-3 pe-3 rounded" %>
-                      <% end %>
-                    </div>
-                    <div class="pending-confirmation col">
-                      <%= simple_form_for(booking) do |f| %>
-                          <%= f.input :status, as: :hidden, input_html: { value: "declined" } %>
-                          <%= f.submit "Decline", class: "btn btn-secondary p-2 ps-3 pe-3 rounded" %>
-                      <% end %>
-                    </div>
-                  </div>
-                </div>
-              <% else %>
-                <p>
-                  <%= booking.status %>
-                  <span>
-                    <%= simple_form_for(booking) do |f| %>
-                        <%= f.input :status, as: :hidden, input_html: { value: "pending" } %>
-                        <%= f.submit "Cancel Confirmation", class: "btn btn-success p-2 ps-5 pe-5 mt-4 rounded" %>
-                    <% end %>
-                  </span>
-                </p>
-              <% end %>
-            </div>
-          </div>
+          <%= render "shared/booking_card", booking: booking %>
         <% end %>
       <% end %>
     </div>
@@ -119,104 +27,12 @@
     <div>
       <% @bookings.each do | booking | %>
         <% if booking.declined? %>
-          <div class="request-card">
-            <p> Booked by:
-              <%= booking.user.username %>
-              <span>on <%= booking.updated_at.strftime("%B %d, %Y") %></span>
-            </p>
-            <p> Message:
-              <%= booking.message %>
-            </p>
-            <%# We could implement an AJAX req for rerendering a part of the page on click or use a disable button %>
-            <div class="status"
-                data-controller="status"
-                data-status-booking-id-value="<%= booking.id %>" >
-              <% if booking.pending? %>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="d-flex">
-                    <p class="my-auto" >
-                      This booking is <strong data-status-target="bookingStatus" ><%= booking.status %></strong>
-                    </p>
-                  </div>
-                  <div class="row">
-                    <div class="pending-confirmation col">
-                      <%= simple_form_for(booking) do |f| %>
-                          <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
-                          <%= f.submit "Accept", class: "btn btn-success p-2 ps-3 pe-3 rounded" %>
-                      <% end %>
-                    </div>
-                    <div class="pending-confirmation col">
-                      <%= simple_form_for(booking) do |f| %>
-                          <%= f.input :status, as: :hidden, input_html: { value: "declined" } %>
-                          <%= f.submit "Decline", class: "btn btn-secondary p-2 ps-3 pe-3 rounded" %>
-                      <% end %>
-                    </div>
-                  </div>
-                </div>
-              <% else %>
-                <p>
-                  <%= booking.status %>
-                  <span>
-                    <%= simple_form_for(booking) do |f| %>
-                        <%= f.input :status, as: :hidden, input_html: { value: "pending" } %>
-                        <%= f.submit "Cancel Confirmation", class: "btn btn-success p-2 ps-5 pe-5 mt-4 rounded" %>
-                    <% end %>
-                  </span>
-                </p>
-              <% end %>
-            </div>
-          </div>
+          <%= render "shared/booking_card", booking: booking %>
         <% end %>
       <% end %>
       <% @bookings.each do | booking | %>
         <% if booking.end_date < DateTime.now %>
-          <div class="request-card">
-            <p> Booked by:
-              <%= booking.user.username %>
-              <span>on <%= booking.updated_at.strftime("%B %d, %Y") %></span>
-            </p>
-            <p> Message:
-              <%= booking.message %>
-            </p>
-            <%# We could implement an AJAX req for rerendering a part of the page on click or use a disable button %>
-            <div class="status"
-                data-controller="status"
-                data-status-booking-id-value="<%= booking.id %>" >
-              <% if booking.pending? %>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="d-flex">
-                    <p class="my-auto" >
-                      This booking is <strong data-status-target="bookingStatus" ><%= booking.status %></strong>
-                    </p>
-                  </div>
-                  <div class="row">
-                    <div class="pending-confirmation col">
-                      <%= simple_form_for(booking) do |f| %>
-                          <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
-                          <%= f.submit "Accept", class: "btn btn-success p-2 ps-3 pe-3 rounded" %>
-                      <% end %>
-                    </div>
-                    <div class="pending-confirmation col">
-                      <%= simple_form_for(booking) do |f| %>
-                          <%= f.input :status, as: :hidden, input_html: { value: "declined" } %>
-                          <%= f.submit "Decline", class: "btn btn-secondary p-2 ps-3 pe-3 rounded" %>
-                      <% end %>
-                    </div>
-                  </div>
-                </div>
-              <% else %>
-                <p>
-                  <%= booking.status %>
-                  <span>
-                    <%= simple_form_for(booking) do |f| %>
-                        <%= f.input :status, as: :hidden, input_html: { value: "pending" } %>
-                        <%= f.submit "Cancel Confirmation", class: "btn btn-success p-2 ps-5 pe-5 mt-4 rounded" %>
-                    <% end %>
-                  </span>
-                </p>
-              <% end %>
-            </div>
-          </div>
+          <%= render "shared/booking_card", booking: booking %>
         <% end %>
       <% end %>
     </div>
