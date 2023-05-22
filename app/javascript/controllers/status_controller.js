@@ -7,7 +7,7 @@ export default class extends Controller {
   static targets = ["bookingStatus"];
 
   changeStatus(data) {
-    this.bookingStatusTarget.innerHTML = data
+    this.bookingStatusTarget.innerHTML = data;
   }
 
   connect() {
@@ -15,5 +15,10 @@ export default class extends Controller {
       { channel: "BookingChannel", id: this.bookingIdValue },
       { received: data => this.changeStatus(data) }
     )
+  }
+
+  disconnect() {
+    console.log("Unsubscribed from the chatroom");
+    this.channel.unsuscribe();
   }
 }
