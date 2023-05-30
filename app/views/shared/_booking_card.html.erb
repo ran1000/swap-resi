@@ -1,4 +1,7 @@
 <div class="request-card">
+  <div>
+    <%= cl_image_tag booking.user.photo.key, height: 300, width: 400, crop: :fill %>
+  </div>
   <p> Booked by:
     <%= booking.user.username %>
     <span>on <%= booking.updated_at.strftime("%B %d, %Y") %></span>
