@@ -9,7 +9,9 @@
         </div>
         <h5 class="col-10 py-2 my-auto">
           <%= booking.user.username.capitalize %> is asking to stay at
-          <span class="text-success"><%= booking.space.name %></span>
+          <%= link_to space_path(booking.space) do %>
+            <span class="text-success"><%= booking.space.name %></span>
+          <% end %>
         </h5>
       </div>
     </div>
