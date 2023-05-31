@@ -1,7 +1,12 @@
 <div class="container">
   <div class="profile-container">
     <div class="avatar">
-      <%= image_tag "https://images.unsplash.com/photo-1591968743883-decc954ccce8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" %>
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key %>
+      <% else %>
+        <%= image_tag "https://images.unsplash.com/photo-1591968743883-decc954ccce8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" %>
+      <% end %>
+      <%# Edit Pic Button, if image tag loader %>
     </div>
     <div class="info">
       <h1>Hello <%= current_user.username %>!</h1>
