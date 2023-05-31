@@ -39,6 +39,14 @@
   font-family: $body-font;
   font-weight: 500;
   color: $success;
+
+}
+
+.sec-button:hover{
+  color: $success;
+  background-color: $white;
+  opacity: 0.7;
+
 }
 
 .button-new {
