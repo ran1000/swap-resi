@@ -2,18 +2,15 @@
   <div class="avatar">
     <%= cl_image_tag booking.user.photo.key %>
   </div>
-
   <h5>
     <%= booking.user.username.capitalize %> is asking to stay at
     <span class="text-success"><%= booking.space.name %></span>
   </h5>
 
-  <h5>
-    <%= booking.cost? %>
-    <%= booking.start_date.strftime("%B %d, %Y") %>
-    <%= booking.end_date.strftime("%B %d, %Y") %>
-    <%= booking.user.username.capitalize %> is asking to stay at
-    <span class="text-success"><%= booking.space.name %></span>
+  <h5 class="text-success">
+    <%= booking.cost? %> credits _
+    <%= booking.start_date.strftime("%e %b %y") %> -
+    <%= booking.end_date.strftime("%e %b %y") %>
   </h5>
 
   <p>
