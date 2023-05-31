@@ -1,13 +1,24 @@
 <div class="request-card">
-  <div>
-    <%= cl_image_tag booking.user.photo.key, height: 300, width: 400, crop: :fill %>
+  <div class="avatar">
+    <%= cl_image_tag booking.user.photo.key %>
   </div>
-  <p> Booked by:
-    <%= booking.user.username %>
-    <span>on <%= booking.updated_at.strftime("%B %d, %Y") %></span>
-  </p>
-  <p> Message:
+
+  <h5>
+    <%= booking.user.username.capitalize %> is asking to stay at
+    <span class="text-success"><%= booking.space.name %></span>
+  </h5>
+
+  <h5>
+    <%= booking.cost? %>
+    <%= booking.start_date.strftime("%B %d, %Y") %>
+    <%= booking.end_date.strftime("%B %d, %Y") %>
+    <%= booking.user.username.capitalize %> is asking to stay at
+    <span class="text-success"><%= booking.space.name %></span>
+  </h5>
+
+  <p>
     <%= booking.message %>
+    <p class="text-muted text-end mb-0">on <%= booking.updated_at.strftime("%B %d, %Y") %></p>
   </p>
   <%# We could implement an AJAX req for rerendering a part of the page on click or use a disable button %>
   <div class="status"

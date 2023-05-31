@@ -73,11 +73,9 @@ class BookingsController < ApplicationController
   end
 
   def update_credits(booking, debitor, creditor)
-    booking_days = (booking.end_date - booking.start_date).to_i
-    credit_cost = (booking.space.daily_cost * booking_days)
-    debitor.credits -= credit_cost
+    debitor.credits -= booking.cost?
     debitor.save!
-    creditor.credits += credit_cost
+    creditor.credits += booking.cost?
     creditor.save!
   end
 end

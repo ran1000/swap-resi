@@ -20,6 +20,12 @@ class Booking < ApplicationRecord
     status == "declined"
   end
 
+  def cost?
+    booking_days = (end_date - start_date).to_i
+    credit_cost = (space.daily_cost * booking_days)
+    return credit_cost
+  end
+
   validates :message, presence: true, length: { minimum: 6 }
   validates :start_date, presence: true
   validates :end_date, presence: true
