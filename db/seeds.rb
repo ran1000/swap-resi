@@ -107,7 +107,7 @@ file_09 = URI.open("https://images.unsplash.com/photo-1535643302794-19c3804b874b
 @user9.save!
 puts "Created user #{User.last.id}"
 
-puts "Creating resis ..."
+puts "Creating spaces ..."
 @space1 = Space.new(
   name: "Fancy salon for musical rehearsal",
   description: "It’s a small, but well-decorated space for having a charming performance. A vertical piano is already there to use. It is is possible to use a PA system, just ask in advance for it. I’ve been using this space regularly during the past years and produced two of my last solo albums. There is a kitchenette next to the salon for having some hot beverages and warming food.",
@@ -117,7 +117,7 @@ puts "Creating resis ..."
 @space1.user = @user1
 @space1.photos.attach(io: File.open(Rails.root.join("app/assets/images/1_musicsalon.jpeg")), filename: "1_musicsalon")
 @space1.save!
-puts "Created resi #{Space.last.id}"
+puts "Created space #{Space.last.id}"
 
 @space2 = Space.new(
   name: "Pottery Atelier",
@@ -128,7 +128,7 @@ puts "Created resi #{Space.last.id}"
 @space2.user = @user2
 @space2.photos.attach(io: File.open(Rails.root.join("app/assets/images/2_pottery.jpeg")), filename: "2_pottery")
 @space2.save!
-puts "Created resi #{Space.last.id}"
+puts "Created space #{Space.last.id}"
 
 @space3 = Space.new(
   name: "Painting room",
@@ -140,7 +140,7 @@ puts "Created resi #{Space.last.id}"
 @space3.photos.attach(io: File.open(Rails.root.join("app/assets/images/3_painting_01.jpeg")), filename: "3_painting_01")
 @space3.photos.attach(io: File.open(Rails.root.join("app/assets/images/3_painting_02.jpeg")), filename: "3_painting_02")
 @space3.save!
-puts "Created resi #{Space.last.id}"
+puts "Created space #{Space.last.id}"
 
 @space4 = Space.new(
   name: "Industrial space for painting and spraying",
@@ -152,7 +152,7 @@ puts "Created resi #{Space.last.id}"
 @space4.photos.attach(io: File.open(Rails.root.join("app/assets/images/4_painting_01.jpeg")), filename: "4_painting_01")
 @space4.photos.attach(io: File.open(Rails.root.join("app/assets/images/4_painting_02.jpeg")), filename: "4_painting_02")
 @space4.save!
-puts "Created resi #{Space.last.id}"
+puts "Created space #{Space.last.id}"
 
 @space5 = Space.new(
   name: "Large hall for installations and performances",
@@ -163,7 +163,7 @@ puts "Created resi #{Space.last.id}"
 @space5.user = @user5
 @space5.photos.attach(io: File.open(Rails.root.join("app/assets/images/5_installations.jpeg")), filename: "5_installations")
 @space5.save!
-puts "Created resi #{Space.last.id}"
+puts "Created space #{Space.last.id}"
 
 @space6 = Space.new(
   name: "Essential Recording Studio",
@@ -174,7 +174,7 @@ puts "Created resi #{Space.last.id}"
 @space6.user = @user6
 @space6.photos.attach(io: File.open(Rails.root.join("app/assets/images/6_musicstudio.jpeg")), filename: "6_musicstudio")
 @space6.save!
-puts "Created resi #{Space.last.id}"
+puts "Created space #{Space.last.id}"
 
 @space7 = Space.new(
   name: "Digital Music Studio",
@@ -185,7 +185,7 @@ puts "Created resi #{Space.last.id}"
 @space7.user = @user7
 @space7.photos.attach(io: File.open(Rails.root.join("app/assets/images/7_musicstudio.jpeg")), filename: "7_musicstudio")
 @space7.save!
-puts "Created resi #{Space.last.id}"
+puts "Created space #{Space.last.id}"
 
 @space8 = Space.new(
   name: "Attic for Drawing",
@@ -196,7 +196,7 @@ puts "Created resi #{Space.last.id}"
 @space8.user = @user8
 @space8.photos.attach(io: File.open(Rails.root.join("app/assets/images/8_drawingattic.jpeg")), filename: "8_drawingattic")
 @space8.save!
-puts "Created resi #{Space.last.id}"
+puts "Created space #{Space.last.id}"
 
 @space9 = Space.new(
   name: "Creative Garage",
@@ -208,21 +208,28 @@ puts "Created resi #{Space.last.id}"
 @space9.photos.attach(io: File.open(Rails.root.join("app/assets/images/9_creativegarage_01.jpeg")), filename: "9_creativegarage_01")
 @space9.photos.attach(io: File.open(Rails.root.join("app/assets/images/9_creativegarage_02.jpeg")), filename: "9_creativegarage_02")
 @space9.save!
-puts "Created resi #{Space.last.id}"
+puts "Created space #{Space.last.id}"
 
-# puts "Creating Bookings..."
-# 5.times do
-#   @booking = Booking.new(
-  #     message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-  #     start_date: Date.today,
-  #     end_date: Date.tomorrow
-  #   )
-  #   @booking.space = Space.all[rand(0..(User.count - 1))]
-  #   @booking.user = User.all[rand(0..(User.count - 1))]
-  #   @booking.save!
-  #   puts "Created booking #{Booking.last.id}"
-  # end
-
-# Attach User photo for each user, complete dashboard info
+puts "Creating Bookings..."
+@booking1 = Booking.new(
+  message: "Hey mariapot! I'm really impressed with your atelier space on arting. Would it be possible for me to stay there for a couple of days? I'm an artist working on a project and your space looks perfect. Let me know if we can discuss the details. Thanks!",
+  start_date: Date.parse("02-06-2023"),
+  end_date: Date.parse("05-06-2023"),
+  status: 0
+)
+@booking1.space = @space2
+@booking1.user = @user1
+@booking1.save!
+puts "Created booking #{Space.last.id}"
+@booking2 = Booking.new(
+  message: "Hi lenlen! Your atelier space on the platform caught my eye. It's amazing! I'm an artist in need of a workspace for a week. Your atelier seems like the perfect fit. Would you consider letting me stay? I promise to take great care of the space. Let's chat and see if we can work something out. Thanks!",
+  start_date: Date.parse("11-06-2023"),
+  end_date: Date.parse("18-06-2023"),
+  status: 1
+)
+@booking2.space = @space1
+@booking2.user = @user5
+@booking2.save!
+puts "Created booking #{Space.last.id}"
 
 puts "Seeding complete!"
