@@ -1,44 +1,5 @@
 require "open-uri"
 
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-# SPACES_ADDRESSES = [
-#   "Besselstraße, 10969 Berlin",
-#   "Scheidemannstraße 1, 10557 Berlin",
-#   "Georgenstraße 14, 10117 Berlin",
-#   "Leipziger Str. 111, 10117 Berlin",
-#   "Alte Jakobstraße 111, 10969 Berlin",
-#   "Linkstraße 10, 10785 Berlin",
-#   "Am Lustgarten 1, 10178 Berlin",
-#   "Rungestraße 31, 10179 Berlin",
-#   "Lindenstraße 14, 10969 Berlin",
-#   "Pariser Platz, 10117 Berlin",
-#   "Askanischer Pl. 2, 10963 Berlin",
-#   "Charlottenstraße 49, 10117 Berlin",
-#   "Hausvogteipl. 11, 10117 Berlin",
-#   "Lausitzer Pl. 5, 10997 Berlin",
-#   "Planufer 96, 10967 Berlin",
-#   "Weinbergsweg 8, 10119 Berlin",
-#   "Erich-Steinfurth-Straße 11, 10243 Berlin",
-#   "Friedenstraße, 10249 Berlin",
-#   "Schlesische Str. 42, 10997 Berlin",
-#   "Hasenheide park, 12049 Berlin",
-#   "Straße 645, Am Tempelhofer Feld, 12049 Berlin",
-#   "Schillerpromenade 5, 12049 Berlin",
-#   "Mainzer Str., 12053 Berlin",
-#   "Elbestraße 1 Ecke, Sonnenallee, 12045 Berlin",
-#   "Sonnenallee 4, 10967 Berlin",
-#   "Leipziger Pl. 12, 10117 Berlin",
-#   "Georgenstraße 14/17, 10117 Berlin",
-#   "Am Zwirngraben, 10178 Berlin",
-#   "Grunerstraße 20, 10179 Berlin"
-# ].freeze
-
 puts 'Sweeping seeds'
 Booking.destroy_all
 Space.destroy_all
@@ -62,6 +23,10 @@ puts "Created user #{User.last.id}"
   email: "maria.smith@outlook.com",
   password: "qwe123"
 )
+file_02 = URI.open("https://images.unsplash.com/photo-1602178856779-d57888ae2f8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=955&q=80")
+@user2.photo.attach(io: file_02,
+  filename: "pic02.png",
+  content_type: "image/png")
 @user2.save!
 puts "Created user #{User.last.id}"
 @user3 = User.new(
@@ -69,6 +34,10 @@ puts "Created user #{User.last.id}"
   email: "ray.paintings@art.com",
   password: "qwe123"
 )
+file_03 = URI.open("https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80")
+@user3.photo.attach(io: file_03,
+  filename: "pic03.png",
+  content_type: "image/png")
 @user3.save!
 puts "Created user #{User.last.id}"
 @user4 = User.new(
@@ -76,6 +45,10 @@ puts "Created user #{User.last.id}"
   email: "gelly.star@gmail.com",
   password: "qwe123"
 )
+file_04 = URI.open("https://images.unsplash.com/photo-1579533183840-16ee351d4dfb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1279&q=80")
+@user4.photo.attach(io: file_04,
+  filename: "pic04.png",
+  content_type: "image/png")
 @user4.save!
 puts "Created user #{User.last.id}"
 @user5 = User.new(
@@ -83,6 +56,10 @@ puts "Created user #{User.last.id}"
   email: "michael.reynolds@moc.com",
   password: "qwe123"
 )
+file_05 = URI.open("https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80")
+@user5.photo.attach(io: file_05,
+  filename: "pic05.png",
+  content_type: "image/png")
 @user5.save!
 puts "Created user #{User.last.id}"
 @user6 = User.new(
@@ -90,6 +67,10 @@ puts "Created user #{User.last.id}"
   email: "nolan.ammac@live.com",
   password: "qwe123"
 )
+file_06 = URI.open("https://images.unsplash.com/photo-1529758146491-1e11fd721f77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80")
+@user6.photo.attach(io: file_06,
+  filename: "pic06.png",
+  content_type: "image/png")
 @user6.save!
 puts "Created user #{User.last.id}"
 @user7 = User.new(
@@ -97,6 +78,10 @@ puts "Created user #{User.last.id}"
   email: "mark.thomson@yahoo.com",
   password: "qwe123"
 )
+file_07 = URI.open("https://images.unsplash.com/photo-1517702145080-e4a4d91435bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80")
+@user7.photo.attach(io: file_07,
+  filename: "pic07.png",
+  content_type: "image/png")
 @user7.save!
 puts "Created user #{User.last.id}"
 @user8 = User.new(
@@ -104,6 +89,10 @@ puts "Created user #{User.last.id}"
   email: "sara.jenkins@gmail.com",
   password: "qwe123"
 )
+file_08 = URI.open("https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80")
+@user8.photo.attach(io: file_08,
+  filename: "pic08.png",
+  content_type: "image/png")
 @user8.save!
 puts "Created user #{User.last.id}"
 @user9 = User.new(
@@ -111,6 +100,10 @@ puts "Created user #{User.last.id}"
   email: "rudolf.moser@bluewin.de",
   password: "qwe123"
 )
+file_09 = URI.open("https://images.unsplash.com/photo-1535643302794-19c3804b874b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80")
+@user9.photo.attach(io: file_09,
+  filename: "pic09.png",
+  content_type: "image/png")
 @user9.save!
 puts "Created user #{User.last.id}"
 
