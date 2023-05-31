@@ -1,3 +1,5 @@
+require "open-uri"
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -49,6 +51,10 @@ puts 'Creating Users...'
   email: "len.maridov@gmail.com",
   password: "qwe123"
 )
+file_01 = URI.open("https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80")
+@user1.photo.attach(io: file_01,
+  filename: "pic01.png",
+  content_type: "image/png")
 @user1.save!
 puts "Created user #{User.last.id}"
 @user2 = User.new(
@@ -224,4 +230,6 @@ puts "Created resi #{Space.last.id}"
   #   puts "Created booking #{Booking.last.id}"
   # end
 
-  puts "Seeding complete!"
+# Attach User photo for each user, complete dashboard info
+
+puts "Seeding complete!"
