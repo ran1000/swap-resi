@@ -1,22 +1,28 @@
 <div class="request-card">
-  <div>
-    <div class="avatar">
-      <%= cl_image_tag booking.user.photo.key %>
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="row row-cols-auto">
+        <div class="col my-auto">
+          <div class="avatar">
+            <%= cl_image_tag booking.user.photo.key %>
+          </div>
+        </div>
+        <h5 class="col-10 py-2 my-auto">
+          <%= booking.user.username.capitalize %> is asking to stay at
+          <span class="text-success"><%= booking.space.name %></span>
+        </h5>
+      </div>
     </div>
-    <h5>
-      <%= booking.user.username.capitalize %> is asking to stay at
-      <span class="text-success"><%= booking.space.name %></span>
-    </h5>
+    <h6 class="col-sm-4 py-2 my-auto text-success">
+      <%= booking.cost? %> credits _
+      <%= booking.start_date.strftime("%e %b %y") %> -
+      <%= booking.end_date.strftime("%e %b %y") %>
+    </h6>
   </div>
-  <h5 class="text-success">
-    <%= booking.cost? %> credits _
-    <%= booking.start_date.strftime("%e %b %y") %> -
-    <%= booking.end_date.strftime("%e %b %y") %>
-  </h5>
-  <p>
+  <p class="py-2">
     <%= booking.message %>
   </p>
-  <p class="text-muted text-end mb-0">on <%= booking.updated_at.strftime("%B %d, %Y") %></p>
+  <p class="text-muted">on <%= booking.updated_at.strftime("%B %d, %Y") %></p>
   <%# We could implement an AJAX req for rerendering a part of the page on click or use a disable button %>
   <div class="status"
       data-controller="status"
@@ -27,17 +33,17 @@
         data-status-target="bookingStatus"
         class="text-danger"><%= booking.status %></strong>
       </p>
-      <div class="row row-cols-auto">
+      <div class="row row-cols-auto gx-2">
         <div class="col">
           <%= simple_form_for(booking) do |f| %>
               <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
-              <%= f.submit "Accept", class: "btn btn-success prim-button" %>
+              <%= f.submit "Accept", class: "btn btn-success prim-button ps-4 pe-4" %>
           <% end %>
         </div>
         <div class="col">
           <%= simple_form_for(booking) do |f| %>
               <%= f.input :status, as: :hidden, input_html: { value: "declined" } %>
-              <%= f.submit "Decline", class: "btn btn-success sec-button" %>
+              <%= f.submit "Decline", class: "btn btn-success sec-button ps-4 pe-4" %>
           <% end %>
         </div>
       </div>
@@ -48,7 +54,7 @@
         <div>
           <%= simple_form_for(booking) do |f| %>
               <%= f.input :status, as: :hidden, input_html: { value: "pending" } %>
-              <%= f.submit "Cancel Confirmation", class: "btn btn-success p-2 ps-5 pe-5 rounded" %>
+              <%= f.submit "Cancel Confirmation", class: "btn btn-success prim-button ps-4 pe-4" %>
           <% end %>
         </div>
       </p>
