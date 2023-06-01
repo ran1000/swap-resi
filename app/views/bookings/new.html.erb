@@ -12,6 +12,7 @@
     <h1 class="form-title text-start pb-5">Send a message to <%= @space.user.username %></h1>
     <div class="booking-form-container">
       <%= simple_form_for [@space, @booking], data: { controller: 'flatpickr' }, url: space_bookings_path, validate: true do |f| %>
+        <%= f.error_notification(message: @booking.errors[:msg].first) %>
         <%= f.input :message,
                     required: false,
                     minlength: "6",

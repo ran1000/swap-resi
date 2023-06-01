@@ -26,6 +26,7 @@ class BookingsController < ApplicationController
     if @booking.cost? <= current_user.credits && @booking.save!
       redirect_to bookings_path
     else
+      @booking.errors.add(:msg, "You don't have enough credits")
       render :new, locals: { :"@space" => @booking.space }, status: :unprocessable_entity
     end
   end
