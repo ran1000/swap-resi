@@ -49,11 +49,13 @@
       <h5 class="text-success my-auto">Add a new space</h5>
   </div>
   <br>
-  <h5> Here your spaces on arting</h5>
-  <br>
-  <div class="container d-flex justify-content-center flex-wrap">
-    <%  current_user && !current_user.spaces.nil? && current_user.spaces.each do |space| %>
-      <%= render "shared/card", space: space %>
+    <% if current_user && !current_user.spaces.nil? && current_user.spaces.count > 0 %>
+      <h5> Here your spaces on arting</h5>
+      <br>
+      <div class="container d-flex justify-content-center flex-wrap">
+        <% current_user.spaces.each do |space| %>
+          <%= render "shared/card", space: space %>
+        <% end %>
+      </div>
     <% end %>
-  </div>
 </div>
