@@ -9,6 +9,7 @@
         <% if booking.pending? %>
           <%= render "shared/booking_card", booking: booking %>
         <% end %>
+        <br>
       <% end %>
     </div>
     <br>
@@ -19,6 +20,7 @@
         <% if booking.accepted? %>
           <%= render "shared/booking_card", booking: booking %>
         <% end %>
+        <br>
       <% end %>
     </div>
     <br>
@@ -29,11 +31,13 @@
         <% if booking.declined? %>
           <%= render "shared/booking_card", booking: booking %>
         <% end %>
+        <br>
       <% end %>
       <% @bookings.each do | booking | %>
         <% if booking.end_date < DateTime.now %>
           <%= render "shared/booking_card", booking: booking %>
         <% end %>
+        <br>
       <% end %>
     </div>
     <br>
