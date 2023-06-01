@@ -1,7 +1,12 @@
 <div class="container">
   <div class="profile-container">
     <div class="avatar">
-      <%= image_tag "https://images.unsplash.com/photo-1591968743883-decc954ccce8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" %>
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key %>
+      <% else %>
+        <%= image_tag "https://images.unsplash.com/photo-1591968743883-decc954ccce8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" %>
+      <% end %>
+      <%# Edit Pic Button, if image tag loader %>
     </div>
     <div class="info">
       <h1>Hello <%= current_user.username %>!</h1>
@@ -37,4 +42,18 @@
       <% end %>
     </div>
   <% end %>
+  <div class="d-flex align-items-center mt-3">
+    <%= link_to new_space_path do %>
+      <button class="btn btn-success rounded-circle button-new me-3"><i class="fa-solid fa-plus"></i></button>
+    <% end %>
+      <h5 class="text-success my-auto">Add a new space</h5>
+  </div>
+  <br>
+  <h5> Here your spaces on arting</h5>
+  <br>
+  <div class="container d-flex justify-content-center flex-wrap">
+    <%  current_user && !current_user.spaces.nil? && current_user.spaces.each do |space| %>
+      <%= render "shared/card", space: space %>
+    <% end %>
+  </div>
 </div>

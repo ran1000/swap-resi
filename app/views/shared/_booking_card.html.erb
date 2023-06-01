@@ -1,0 +1,80 @@
+<div class="request-card">
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="row row-cols-auto">
+        <div class="col my-auto">
+          <div class="avatar">
+            <%= cl_image_tag booking.user.photo.key %>
+          </div>
+        </div>
+        <h5 class="col-10 py-2 my-auto">
+          <% if current_page?(bookings_path) %>
+            You requested to stay at
+          <% else %>
+            <%= booking.user.username.capitalize %> is asking to stay at
+          <% end %>
+          <%= link_to space_path(booking.space) do %>
+            <span class="text-success"><%= booking.space.name %></span>
+          <% end %>
+        </h5>
+      </div>
+    </div>
+    <h6 class="col-sm-4 py-2 my-auto text-success">
+      <%= booking.cost? %> credits _
+      <%= booking.start_date.strftime("%e %b %y") %> -
+      <%= booking.end_date.strftime("%e %b %y") %>
+    </h6>
+  </div>
+  <p class="py-2">
+    <%= booking.message %>
+  </p>
+  <p class="text-muted">on <%= booking.updated_at.strftime("%B %d, %Y") %></p>
+  <%# We could implement an AJAX req for rerendering a part of the page on click or use a disable button %>
+  <div class="status"
+      data-controller="status"
+      data-status-booking-id-value="<%= booking.id %>" >
+    <% if current_page?(bookings_path) %>
+      <p>
+        This booking is <strong
+        data-status-target="bookingStatus"
+        class="text-danger"><%= booking.status %></strong>
+      </p>
+      <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+        <button class="btn btn-success sec-button ps-4 pe-4">Cancel Booking</button>
+      <% end %>
+    <% else %>
+      <% if booking.pending? %>
+        <p>
+          This booking is <strong
+          data-status-target="bookingStatus"
+          class="text-danger"><%= booking.status %></strong>
+        </p>
+        <div class="row row-cols-auto gx-2">
+          <div class="col">
+            <%= simple_form_for(booking) do |f| %>
+                <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
+                <%= f.submit "Accept", class: "btn btn-success prim-button ps-4 pe-4" %>
+            <% end %>
+          </div>
+          <div class="col">
+            <%= simple_form_for(booking) do |f| %>
+                <%= f.input :status, as: :hidden, input_html: { value: "declined" } %>
+                <%= f.submit "Decline", class: "btn btn-success sec-button ps-4 pe-4" %>
+            <% end %>
+          </div>
+        </div>
+      <% else %>
+        <p>
+          This booking is <strong
+          class="text-success"><%= booking.status %></strong>
+          <div>
+            <%= simple_form_for(booking) do |f| %>
+                <%= f.input :status, as: :hidden, input_html: { value: "pending" } %>
+                <%= f.submit "Cancel Confirmation", class: "btn btn-success prim-button ps-4 pe-4" %>
+            <% end %>
+          </div>
+        </p>
+      <% end %>
+    <% end %>
+  </div>
+</div>

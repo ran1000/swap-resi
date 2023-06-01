@@ -62,7 +62,11 @@
       </p>
       <% if @space.user != current_user %>
         <%= link_to new_space_booking_path(@space) do %>
-          <button class="btn btn-success rounded prim-button mt-2 mb-5">Book Resi</button>
+          <button class="btn btn-success prim-button mt-2 mb-5">Book Space</button>
+        <% end %>
+      <% else %>
+        <%= link_to space_path(@space), data: {turbo_method: :delete, turbo_confirm: "Do you confirm the removal of your space from Arting?"} do %>
+          <button class="btn btn-success sec-button ps-3 pe-3">Delete</button>
         <% end %>
       <% end %>
     </div>

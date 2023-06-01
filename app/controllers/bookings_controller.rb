@@ -23,10 +23,11 @@ class BookingsController < ApplicationController
     @booking.space = Space.find(params[:space_id])
     @booking.user = current_user
     authorize @booking
-    if @booking.save!
+    if @booking.cost? <= current_user.credits && @booking.save!
       redirect_to bookings_path
     else
-      render :new, status: :unprocessable_entity
+      @booking.errors.add(:msg, "You don't have enough credits")
+      render :new, locals: { :"@space" => @booking.space }, status: :unprocessable_entity
     end
   end
 
@@ -73,11 +74,9 @@ class BookingsController < ApplicationController
   end
 
   def update_credits(booking, debitor, creditor)
-    booking_days = (booking.end_date - booking.start_date).to_i
-    credit_cost = (booking.space.daily_cost * booking_days)
-    debitor.credits -= credit_cost
+    debitor.credits -= booking.cost?
     debitor.save!
-    creditor.credits += credit_cost
+    creditor.credits += booking.cost?
     creditor.save!
   end
 end

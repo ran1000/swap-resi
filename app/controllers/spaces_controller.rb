@@ -1,4 +1,3 @@
-
 class SpacesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[show index]
   before_action :set_space, only: %i[show]
@@ -37,7 +36,7 @@ class SpacesController < ApplicationController
     set_space
     authorize @space
     @space.destroy!
-    redirect_to host_index_bookings_path, status: :see_other
+    redirect_to spaces_path, status: :see_other
   end
 
   private

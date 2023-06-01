@@ -22,7 +22,11 @@
         </li>
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
-            <%= image_tag "https://images.unsplash.com/photo-1591968743883-decc954ccce8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80", class: "navbar-avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, class: "navbar-avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+            <% else %>
+              <%= image_tag "https://images.unsplash.com/photo-1591968743883-decc954ccce8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80", class: "navbar-avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
             <div class="dropdown-menu dropdown-menu-end bg-primary dropdown-box" aria-labelledby="navbarDropdown">
               <%= link_to "/profile", class: "dropdown-item" do %>
                     <%= current_user.username.capitalize() %> Profile
