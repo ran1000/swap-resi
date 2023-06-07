@@ -1,0 +1,14 @@
+# one:
+#   name: Example Space 1
+#   daily_cost: 10
+#   description: "This is the description of the first example space"
+
+# two:
+#   name: Example Space 2
+#   daily_cost: 15
+#   description: "This is the description of the second example space"
+
+# three:
+#   name: Example Space 3
+#   daily_cost: 20
+#   description: "This is the description of the third example space"
