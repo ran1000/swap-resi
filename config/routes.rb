@@ -16,7 +16,9 @@ Rails.application.routes.draw do
       get :host_index
     end
   end
-  resources :chatrooms, only: :show
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
   # get "map", to: "pages#map"
   get "messages", to: "pages#messages"
   get "profile", to: "pages#profile"
