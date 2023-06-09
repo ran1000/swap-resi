@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import ChatroomSubscriptionController from "./chatroom_subscription_controller"
+application.register("chatroom-subscription", ChatroomSubscriptionController)
+
 import CookieModalController from "./cookie_modal_controller"
 application.register("cookie-modal", CookieModalController)
 
