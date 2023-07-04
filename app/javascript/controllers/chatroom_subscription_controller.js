@@ -7,8 +7,10 @@ export default class extends Controller {
   static targets = ["messages"]
 
   connect() {
+    // Subscribe to the chatroom with the id from the data attribute
     this.channel = createConsumer().subscriptions.create(
       { channel: "ChatroomChannel", id: this.chatroomIdValue },
+      // Called when there's incoming data on the websocket for this channel
       { received: data => this.#insertMessageAndScrollDown(data) }
     )
     console.log(`Subscribe to the chatroom with the id ${this.chatroomIdValue}.`)
@@ -24,7 +26,9 @@ export default class extends Controller {
   }
 
   #insertMessageAndScrollDown(data) {
+    // Insert the new message at the bottom of the list of messages
     this.messagesTarget.insertAdjacentHTML("beforeend", data)
+    // Scroll down to the newly added message
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
   }
 }
