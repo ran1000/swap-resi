@@ -1,6 +1,6 @@
 class ChatroomsController < ApplicationController
   def index
-    @chatrooms = Chatroom.where(booking_id: current_user.bookings)
+    @chatrooms = Chatroom.where(current_user.bookings.include?(:booking_id)).or(Chatroom.where(current_user.spaces.map{|space| space.bookings.map{|booking| booking.id}}.flatten.include?(:booking_id)))
     @chatrooms = policy_scope(@chatrooms)
   end
 
