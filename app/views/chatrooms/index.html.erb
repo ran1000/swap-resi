@@ -1,7 +1,6 @@
 <div class="content-container mx-auto">
     <h2 class="pt-5">Messages</h2>
-    <% raise %>
     <% @chatrooms.each do |chatroom| %>
-      <h4><%= chatroom %></h4>
+      <h4><%= chatroom.name %></h4>
     <% end %>
 </div>

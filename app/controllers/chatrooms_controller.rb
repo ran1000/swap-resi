@@ -1,6 +1,6 @@
 class ChatroomsController < ApplicationController
   def index
-    @chatrooms = Chatroom.where(user_id: current_user)
+    @chatrooms = Chatroom.where(booking_id: current_user.bookings)
     @chatrooms = policy_scope(@chatrooms)
   end
 

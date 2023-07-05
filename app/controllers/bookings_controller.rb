@@ -23,7 +23,10 @@ class BookingsController < ApplicationController
     @booking.space = Space.find(params[:space_id])
     @booking.user = current_user
     authorize @booking
+    @chatroom = Chatroom.new(name: "#{current_user.username.capitalize} at #{@booking.space.name}")
     if @booking.cost? <= current_user.credits && @booking.save!
+      @chatroom.booking = @booking
+      @chatroom.save!
       redirect_to bookings_path
     else
       @booking.errors.add(:msg, "You don't have enough credits")
